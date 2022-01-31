@@ -12,7 +12,7 @@ $jsal.postProfileComment(username,content)
 $jsal.changeProject(projectid,json)
 ```
 ### sessionを読み込み、新たな関数を追加する
-```
+```js
 $jsal.readSession(読み込んだ後実行する関数)
 ```
 ### プロジェクトにコメントする

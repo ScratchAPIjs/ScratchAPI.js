@@ -23,6 +23,9 @@ $jsal.postProfileComment=(username,content,option)=>{
 $jsal.changeProject=(projectid,json,option)=>{
   fetch("https://projects.scratch.mit.edu/"+projectid,{method:"PUT",headers:{'Accept':'*/*','Content-type':'application/json'},body:JSON.stringify(json),credentials:'include'})
 }
+$jsal.toggleProfileComments=(username)=>{
+  fetch("/site-api/comments/user/"+username+"/toggle-comments/",{method:"POST",headers:{'X-Requested-With':'XMLHttpRequest','X-CSRFToken':document.cookie.match(/(; |^)scratchcsrftoken=(.+?);/)[2]},credentials:'include'})
+}
 $jsal.readSession=(afterreading)=>{
   fetch("/session/",{headers:{'X-Requested-With':'XMLHttpRequest'},credentials:'include'}).then(a=>a.json()).then(a=>{
     $jsal.session=a

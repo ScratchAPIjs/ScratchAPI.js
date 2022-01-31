@@ -3,7 +3,7 @@
 
 ## 機能解説
 
-###　プロフィールにコメントする
+### プロフィールにコメントする
 ```js
 $jsal.postProfileComment(username,content)
 ```

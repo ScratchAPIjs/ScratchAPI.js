@@ -13,7 +13,7 @@ $jsal.changeProject(projectid,json)
 ```
 ### プロフィールのコメント欄を閉じる・開ける
 ```js
-$jsal.toggleProfileComments()
+$jsal.toggleProfileComments(username)
 ```
 ### sessionを読み込み、新たな関数を追加する
 ```js

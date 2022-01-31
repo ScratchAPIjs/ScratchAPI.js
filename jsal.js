@@ -43,20 +43,3 @@ $jsal.readSession=(afterreading)=>{
     }
   })
 }
-
-/*
-__________機能解説__________
-
-$jsal.postProfileComment(username,content)
-　プロフィールにコメントする
-$jsal.changeProject(projectid,json)
-　project.jsonを書き換える
-$jsal.readSession(読み込んだ後実行する関数)
-　sessionを読み込み、新たな関数を追加する
-　　$jsal.postProjectComment(projectid,content)
-　　　プロジェクトにコメントする
-　　$jsal.postStudioComment(studioid,content)
-　　　スタジオにコメントする
-　　$jsal.toggleProfileComments()
-　　　プロフィールのコメント欄を閉じる・開ける
-*/

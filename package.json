@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "index.js",
+  "main": "src/index.js",
   "dependencies": {
-    "axios": "^0.25.0"
+    "axios": "^0.25.0",
+    "node-fetch": "^3.2.0"
   },
   "devDependencies": {
     "node": "^16.6.1"
@@ -15,6 +16,14 @@
     "sample_1": "node --es-module-specifier-resolution=node ./samples/basic_1",
     "generate-docs": "npx jsdoc -c jsdoc.json"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsumuri3/Scratch-API-Librarys.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tsumuri3/Scratch-API-Librarys/issues"
+  },
+  "homepage": "https://github.com/tsumuri3/Scratch-API-Librarys#readme",
   "author": "",
-  "license": "MIT"
+  "license": "ISC"
 }

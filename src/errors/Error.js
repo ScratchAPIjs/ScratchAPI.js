@@ -1,15 +1,8 @@
 "use strict";
 
-// Heavily inspired by node's `internal/errors` module
-
 const kCode = Symbol("code");
 const messages = new Map();
 
-/**
- * Extend an error of some sort into a ModuleError.
- * @param {Error} Base Base error to extend
- * @returns {ModuleError}
- */
 function makeModuleError(Base) {
   return class ModuleError extends Base {
     constructor(key, ...args) {
@@ -28,12 +21,6 @@ function makeModuleError(Base) {
   };
 }
 
-/**
- * Format the message for an error.
- * @param {string} key Error key
- * @param {Array<*>} args Arguments to pass for util format or as function args
- * @returns {string} Formatted string
- */
 function message(key, args) {
   if (typeof key !== "string") throw new Error("Error message key must be a string");
   const msg = messages.get(key);
@@ -44,11 +31,6 @@ function message(key, args) {
   return String(...args);
 }
 
-/**
- * Register an error code and message.
- * @param {string} sym Unique name for the error
- * @param {*} val Value of the error
- */
 export function register(sym, val) {
   messages.set(sym, typeof val === "function" ? val : String(val));
 }

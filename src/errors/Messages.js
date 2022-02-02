@@ -12,9 +12,13 @@ export const Messages = {
   TOKEN_MISSING: "Request to use token, but token was unavailable to the client.",
 
   REQUEST_INVALID: (body) => body,
-
-  MISSING_ACCESS: (username, password) =>
+  LOGIN_REJECTED: (username, password) =>
     `Could not access provided Scratch account (${username}) with this password: ${password}`,
+
+  FETCH_REJECTED: `The fetch request was rejected.`,
+  COMMENT_REJECTED: `The comments' request was rejected.`,
+
+  NOT_IMPLEMENTED: (what, name) => `Method ${what} not implemented on ${name}.`,
 };
 
 for (const [name, message] of Object.entries(Messages)) register(name, message);

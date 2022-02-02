@@ -6,6 +6,7 @@ import { Error } from "../errors";
 export default class AxiosAdapter {
   constructor(config) {
     this.axios = Axios.create(config);
+
     this.axios.interceptors.request.use(
       (config) => {
         return config;
@@ -24,6 +25,7 @@ export default class AxiosAdapter {
     );
     this.defaults = this.axios.defaults;
   }
+
   request(...options) {
     return this.axios.request(...options);
   }
@@ -47,5 +49,9 @@ export default class AxiosAdapter {
   }
   patch(...options) {
     return this.axios.patch(...options);
+  }
+
+  getUri(...options) {
+    return this.axios.getUri(...options);
   }
 }

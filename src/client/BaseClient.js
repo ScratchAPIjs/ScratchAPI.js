@@ -1,13 +1,11 @@
 "use strict";
 
 import EventEmitter from "node:events";
-import { TypeError } from "../errors";
-import { Util, Options } from "../utils";
 
-/**
- * The base class for all clients.
- * @extends {EventEmitter}
- */
+import { TypeError } from "../errors";
+import { Util, DefaultOptions } from "../utils";
+import Session from "../session/Session";
+
 export default class BaseClient extends EventEmitter {
   constructor(options = {}) {
     super({ captureRejections: true });
@@ -16,10 +14,11 @@ export default class BaseClient extends EventEmitter {
       throw new TypeError("INVALID_TYPE", "options", "object", true);
     }
 
-    /**
-     * The options the client was instantiated with
-     * @type {ClientOptions}
-     */
-    this.options = Util.mergeDefault(Options.createDefault(), options);
+    this.options = Util.mergeDefault(DefaultOptions.client, options);
+
+    this.session = new Session(this);
+  }
+  destroy() {
+    this.session.destroy();
   }
 }

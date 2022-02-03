@@ -1,12 +1,12 @@
 "use strict";
 
-import EventEmitter from "node:events";
+const EventEmitter = require("node:events");
 
-import { TypeError } from "../errors";
-import { Util, DefaultOptions } from "../utils";
-import Session from "../session/Session";
+const { TypeError } = require("../errors");
+const { Util, DefaultOptions } = require("../utils");
+const { Session } = require("../session/Session");
 
-export default class BaseClient extends EventEmitter {
+class BaseClient extends EventEmitter {
   constructor(options = {}) {
     super({ captureRejections: true });
 
@@ -17,8 +17,11 @@ export default class BaseClient extends EventEmitter {
     this.options = Util.mergeDefault(DefaultOptions.client, options);
 
     this.session = new Session(this);
+    this.adapter = this.session.adapter;
   }
   destroy() {
     this.session.destroy();
   }
 }
+
+module.exports = { BaseClient };

@@ -1,16 +1,25 @@
 "use strict";
 
-import Base from "./Base";
+const { Base } = require("./Base");
 
-export default class UserHistory extends Base {
-  constructor(client, data, isObject = false) {
-    super(client);
-    if (isObject) {
-      this.event = Object.keys(data)[0];
-      this.date = Object.values(data)[0];
+class UserHistory extends Base {
+  constructor(user, data) {
+    super(user.client);
+
+    this._patch(data);
+  }
+
+  _patch(data) {
+    if ("joined" in data) {
+      this.joined = new Date(data.joined);
     } else {
-      this.event = data.event;
-      this.date = data.date;
+      this.joined ??= null;
     }
   }
+
+  get joinedAt() {
+    return new Date(this.joined);
+  }
 }
+
+module.exports = { UserHistory };

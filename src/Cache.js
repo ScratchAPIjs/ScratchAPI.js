@@ -1,5 +1,7 @@
 "use strict";
 
-import Collection from "@discordjs/collection";
+const { Collection } = require("@discordjs/collection");
 
-export default class Cache extends Collection {}
+class Cache extends Collection {}
+
+module.exports = { Cache };

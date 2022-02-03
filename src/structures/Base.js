@@ -1,6 +1,6 @@
 "use strict";
 
-export default class Base {
+class Base {
   constructor(client) {
     Object.defineProperty(this, "client", { value: client });
   }
@@ -23,3 +23,5 @@ export default class Base {
     return this.id;
   }
 }
+
+module.exports = { Base };

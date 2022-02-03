@@ -1,7 +1,9 @@
-import "./utils/Util.js";
+require("./utils/Util.js");
 
-export { default as BaseClient } from "./client/BaseClient";
-export { default as Client } from "./client/Client";
+module.exports = {
+  ...require("./client/BaseClient"),
+  ...require("./client/Client"),
 
-export { default as Base } from "./structures/Base";
-export { default as User } from "./structures/User";
+  ...require("./structures/Base"),
+  ...require("./structures/User"),
+};

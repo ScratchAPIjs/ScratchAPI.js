@@ -1,4 +1,6 @@
 "use strict";
 
-export { register, Error, TypeError, RangeError } from "./Error";
-export * from "./Messages";
+module.exports = {
+  ...require("./Error"),
+  ...require("./Messages"),
+};

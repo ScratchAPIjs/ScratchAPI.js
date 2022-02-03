@@ -36,7 +36,7 @@ void (function consoleLogColorizer() {
 
 const isObject = (d) => typeof d === "object" && d !== null;
 
-export default class Util extends null {
+class Util extends null {
   static cloneObject(obj) {
     return Object.assign(Object.create(obj), obj);
   }
@@ -68,3 +68,5 @@ export default class Util extends null {
     return cookies;
   }
 }
+
+module.exports = { Util };

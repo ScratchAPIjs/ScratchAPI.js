@@ -1,10 +1,10 @@
 "use strict";
 
-import { Constants } from "../configs/Constants";
-const SERVER = Constants.API.FQDN.SERVER;
-const CDN_SERVER = Constants.API.FQDN.CDN_SERVER;
+const { Servers } = require("../session/Addresses");
+const SERVER = Servers.GENERAL;
+const CDN_SERVER = Servers.CDN;
 
-export default class GenerateURL extends null {
+class GenerateURL extends null {
   static user(username) {
     return `https://${SERVER}/users/${username}/`;
   }
@@ -18,3 +18,5 @@ export default class GenerateURL extends null {
     return `https://${SERVER}/studios/${id}/`;
   }
 }
+
+module.exports = { GenerateURL };

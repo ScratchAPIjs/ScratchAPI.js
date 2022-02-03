@@ -1,9 +1,9 @@
 "use strict";
 
-import DataManager from "./DataManager";
-import Cache from "../Cache";
+const { DataManager } = require("./DataManager");
+const { Cache } = require("../Cache");
 
-export default class CachedManager extends DataManager {
+class CachedManager extends DataManager {
   constructor(client, holds, items) {
     super(client, holds);
 
@@ -33,7 +33,10 @@ export default class CachedManager extends DataManager {
     }
 
     const entry = this.holds ? new this.holds(this.client, data, ...extras) : data;
+
     if (cache) this.cache.set(id ?? entry.id, entry);
     return entry;
   }
 }
+
+module.exports = { CachedManager };

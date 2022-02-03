@@ -1,12 +1,12 @@
 "use strict";
 
-import { Error } from "../errors";
-import { Constants } from "../configs/Constants";
+const { Error } = require("../errors");
+const { Servers } = require("./Addresses");
 
-import AxiosAdapter from "../functions/Adapter";
-import { Util, DefaultOptions } from "../utils";
+const { AxiosAdapter } = require("./Adapter");
+const { Util, DefaultOptions } = require("../utils");
 
-export default class Session {
+class Session {
   constructor(client) {
     Object.defineProperty(this, "client", { value: client });
 
@@ -15,14 +15,14 @@ export default class Session {
   }
   async connect(username, password) {
     const response = await this.adapter.request({
-      url: "/accounts/login/",
+      url: `https://${Servers.GENERAL}/accounts/login/`,
       method: "POST",
       data: { username: username, password: password },
     });
     if (response.isAxiosError) throw new Error("LOGIN_REJECTED", username, password);
 
     this.id = Util.parseCookie(response.headers["set-cookie"][0]).scratchsessionsid;
-    this.adapter.defaults.headers.cookie += ` scratchsessionsid=${this.id};`;
+    this.adapter.defaults.headers.cookie += `scratchsessionsid=${this.id};`;
 
     return response;
   }
@@ -30,21 +30,23 @@ export default class Session {
     this.id = null;
   }
 
-  async fetchUser(username) {
+  async addComment(options = {}) {
+    let type, identifier;
+    if (options.project) {
+      type = "project";
+      identifier = options.project;
+    } else if (options.user) {
+      type = "user";
+      identifier = options.user;
+    } else if (options.studio) {
+      type = "gallery";
+      identifier = options.studio;
+    }
     const response = await this.adapter.request({
-      baseURL: `https://${Constants.API.FQDN.API_SERVER}`,
-      url: `/users/${username}/`,
-    });
-    if (response.isAxiosError) throw new Error("FETCH_REJECTED");
-    return response;
-  }
-
-  async addComment(content) {
-    const response = await this.adapter.request({
-      url: `/site-api/comments/user/${this.client.username}/add/`,
+      url: `https://${Servers.GENERAL}/site-api/comments/${type}/${identifier}/add/`,
       method: "POST",
       data: {
-        content: content,
+        content: options?.content,
         parent_id: "",
       },
       responseType: "document",
@@ -53,3 +55,5 @@ export default class Session {
     return response;
   }
 }
+
+module.exports = { Session };

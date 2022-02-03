@@ -1,8 +1,8 @@
 "use strict";
 
-export const Events = {
+const Events = {
   READY: "ready",
   DESTROYED: "destroyed",
 };
 
-export default Events;
+module.exports = { Events };

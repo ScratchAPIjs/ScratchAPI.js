@@ -1,10 +1,10 @@
 "use strict";
 
-import https from "https";
-import util from "util";
-import events from "events";
-import fs from "fs";
-import WebSocket from "ws";
+const https = require("https");
+const util = require("util");
+const events = require("events");
+const fs = require("fs");
+const WebSocket = require("ws");
 
 let SERVER = "scratch.mit.edu";
 let PROJECTS_SERVER = "projects.scratch.mit.edu";

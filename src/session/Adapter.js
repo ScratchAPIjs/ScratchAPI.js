@@ -1,9 +1,9 @@
 "use strict";
 
-import Axios from "axios";
-import { Error } from "../errors";
+const Axios = require("axios");
+const { Error } = require("../errors");
 
-export default class AxiosAdapter {
+class AxiosAdapter {
   constructor(config) {
     this.axios = Axios.create(config);
 
@@ -12,7 +12,7 @@ export default class AxiosAdapter {
         return config;
       },
       (error) => {
-        console.log(new Error("REQUEST_INVALID", error.body));
+        throw new Error("REQUEST_INVALID", error.body);
       }
     );
     this.axios.interceptors.response.use(
@@ -20,6 +20,7 @@ export default class AxiosAdapter {
         return response;
       },
       (error) => {
+        throw new Error("RESPONSE_ERRORED", error.body);
         return error;
       }
     );
@@ -55,3 +56,5 @@ export default class AxiosAdapter {
     return this.axios.getUri(...options);
   }
 }
+
+module.exports = { AxiosAdapter };

@@ -1,12 +1,14 @@
 "use strict";
 
-import { Events } from "../utils";
-import { Error } from "../errors";
+const { Events } = require("../utils");
+const { Error } = require("../errors");
+const { Routes } = require("../session/Addresses");
 
-import BaseClient from "./BaseClient";
-import ClientUser from "../structures/ClientUser";
+const { BaseClient } = require("./BaseClient");
+const { ClientUser } = require("../structures/ClientUser");
+const { UserManager } = require("../managers/UserManager");
 
-export default class Client extends BaseClient {
+class Client extends BaseClient {
   constructor(options) {
     super(options);
 
@@ -20,8 +22,9 @@ export default class Client extends BaseClient {
     this.username = null;
 
     this.user = null;
-
     this.readyTimestamp = null;
+
+    this.users = new UserManager(this);
   }
 
   get readyAt() {
@@ -36,15 +39,12 @@ export default class Client extends BaseClient {
     if (!password || typeof password !== "string") throw new Error("USERNAME_INVALID");
     if (!password || typeof password !== "string") throw new Error("PASSWORD_INVALID");
 
-    const response = await this.session.connect(username, password);
-    response.status = null;
-    let user = response.data[0];
+    const loginResponse = await this.session.connect(username, password);
+    const userResponse = await this.adapter.get(Routes.API.user(username));
+    this.user = new ClientUser(this, userResponse.data);
 
-    this.user = new ClientUser(this, user);
-    await this.user.fetch();
-
-    this.token = user.token;
-    this.username = user.username;
+    this.token = loginResponse.data.token;
+    this.username = username;
 
     this.readyTimestamp = Date.now();
 
@@ -65,3 +65,5 @@ export default class Client extends BaseClient {
 
   _validateOptions(options = this.options) {}
 }
+
+module.exports = { Client };

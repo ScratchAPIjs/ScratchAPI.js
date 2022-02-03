@@ -1,5 +1,7 @@
 "use strict";
 
-import User from "./User";
+const { User } = require("./User");
 
-export default class ClientUser extends User {}
+class ClientUser extends User {}
+
+module.exports = { ClientUser };

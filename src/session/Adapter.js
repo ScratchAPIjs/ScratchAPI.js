@@ -20,7 +20,7 @@ class AxiosAdapter {
         return response;
       },
       (error) => {
-        throw new Error("RESPONSE_ERRORED", error.body);
+        //throw new Error("RESPONSE_ERRORED", error.body);
         return error;
       }
     );

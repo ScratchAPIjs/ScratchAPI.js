@@ -36,31 +36,11 @@ void (function consoleLogColorizer() {
 
 const isObject = (d) => typeof d === "object" && d !== null;
 
-/**
- * Contains various general-purpose utility methods.
- */
-export default class Util extends null {
-  /**
-   * Options for splitting a message.
-   * @typedef {Object} SplitOptions
-   * @property {number} [maxLength=2000] Maximum character length per message piece
-   * @property {string|string[]|RegExp|RegExp[]} [char='\n'] Character(s) or Regex(es) to split the message with,
-   * an array can be used to split multiple times
-   * @property {string} [prepend=''] Text to prepend to every piece except the first
-   * @property {string} [append=''] Text to append to every piece except the last
-   */
-
+class Util extends null {
   static cloneObject(obj) {
     return Object.assign(Object.create(obj), obj);
   }
 
-  /**
-   * Sets default properties on an object that aren't already specified.
-   * @param {Object} def Default properties
-   * @param {Object} given Object to assign defaults to
-   * @returns {Object}
-   * @private
-   */
   static mergeDefault(def, given) {
     if (!given) return def;
     for (const key in def) {
@@ -88,3 +68,8 @@ export default class Util extends null {
     return cookies;
   }
 }
+<<<<<<< HEAD
+=======
+
+module.exports = { Util };
+>>>>>>> 064a770c8b36da3cd3338cc91cc2f33ebd7e09b1

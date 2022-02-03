@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import https from "https";
+=======
+const https = require("https");
+>>>>>>> 064a770c8b36da3cd3338cc91cc2f33ebd7e09b1
 
 class RequestOption {
   match() {

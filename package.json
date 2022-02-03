@@ -2,10 +2,11 @@
   "name": "ScratchAPI.js",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "main": "src/index.js",
   "dependencies": {
+    "@discordjs/collection": "^0.5.0",
     "axios": "^0.25.0",
+    "dotenv": "^16.0.0",
     "node-fetch": "^3.2.0"
   },
   "devDependencies": {

@@ -7,6 +7,7 @@ const { Routes } = require("../session/Addresses");
 const { BaseClient } = require("./BaseClient");
 const { ClientUser } = require("../structures/ClientUser");
 const { UserManager } = require("../managers/UserManager");
+const { MessageEvent } = require('../events/messageEvent');
 
 class Client extends BaseClient {
   constructor(options) {
@@ -23,6 +24,8 @@ class Client extends BaseClient {
 
     this.user = null;
     this.readyTimestamp = null;
+
+    this.messageEvent = new MessageEvent(this);
 
     this.users = new UserManager(this);
   }
@@ -49,6 +52,8 @@ class Client extends BaseClient {
     this.readyTimestamp = Date.now();
 
     this.emit(Events.READY, this.username);
+
+    this.messageEvent.start();
 
     return this.user;
   }

@@ -1,4 +1,4 @@
-import { Constants } from "../configs/Constants";
+const { Constants } = require("../configs/Constants");
 
 class MessageEvent {
   constructor(client) {
@@ -7,7 +7,7 @@ class MessageEvent {
 
   start() {
     this.eventUpdate();
-    setInterval(this.eventUpdate.bind(this), Constants.API_MESSAGE_EVENT_FREQUENCE)
+    setInterval(this.eventUpdate.bind(this), Constants.API.MESSAGE_EVENT_FREQUENCE)
   }
 
   eventUpdate() {
@@ -20,4 +20,5 @@ class MessageEvent {
   }
 }
 
-export default MessageEvent;
+
+module.exports = { MessageEvent };

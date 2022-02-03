@@ -13,6 +13,10 @@ client.on("ready", () => {
   console.log(client.user.profile.avatar);
   console.log(client.user.profile.avatarURL());
 
+  client.on("message", (data) => {
+    console.log(data);
+  });
+
   //client.user.addComment("<content that you want to send>").then(console.log);
 });
 

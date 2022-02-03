@@ -7,6 +7,7 @@ import { Error } from "../errors";
 
 import BaseClient from "./BaseClient";
 import User from "../structures/User";
+import MessageEvent from "../events/MessageEvent";
 
 /**
  * The main hub for interacting with the Discord API, and the starting point for any bot.
@@ -41,6 +42,8 @@ export default class Client extends BaseClient {
       },
       timeout: Constants.API_REQUEST_TIMEOUT_MS,
     });
+
+    this.messageEvent = new MessageEvent(this);
 
     /**
      * User that the client is logged in as
@@ -90,6 +93,7 @@ export default class Client extends BaseClient {
     this.username = user.username;
     this.sessionId = Util.parseCookie(response.headers["set-cookie"][0]).scratchsessionsid;
     this.adapter.defaults.headers.cookie += ` scratchsessionsid=${this.sessionId};`;
+    this.messageEvent.start();
     this.emit("ready", this.user);
     return this.user;
   }

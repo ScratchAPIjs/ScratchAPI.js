@@ -1,7 +1,8 @@
 "use strict";
 
-const { Client } = require("../src");
+require("dotenv").config();
 
+const { Client } = require("../src");
 const client = new Client();
 
 client.on("ready", () => {
@@ -15,4 +16,4 @@ client.on("ready", () => {
   //client.user.addComment("<content that you want to send>").then(console.log);
 });
 
-client.login("<your account's name>", "<your account's password>");
+client.login(process.env.SCRATCH_USERNAME, process.env.SCRATCH_PASSWORD);

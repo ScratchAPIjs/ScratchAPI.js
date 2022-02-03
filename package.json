@@ -14,6 +14,7 @@
   "scripts": {
     "start": "node --es-module-specifier-resolution=node ./src/index",
     "sample_1": "node --es-module-specifier-resolution=node ./samples/basic_1",
+    "test": "node --es-module-specifier-resolution=node $npm_config_file",
     "generate-docs": "npx jsdoc -c jsdoc.json"
   },
   "repository": {

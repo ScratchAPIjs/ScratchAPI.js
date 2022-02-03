@@ -68,8 +68,5 @@ class Util extends null {
     return cookies;
   }
 }
-<<<<<<< HEAD
-=======
 
 module.exports = { Util };
->>>>>>> 064a770c8b36da3cd3338cc91cc2f33ebd7e09b1

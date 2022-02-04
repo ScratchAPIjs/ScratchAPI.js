@@ -1,6 +1,6 @@
 "use strict";
 
-const { register } = require("./Error");
+const { register } = require("./JSALError");
 
 const Messages = {
   CLIENT_INVALID_OPTION: (prop, must) => `The ${prop} option must be ${must}`,

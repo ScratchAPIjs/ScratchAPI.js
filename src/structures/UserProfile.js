@@ -1,14 +1,13 @@
 "use strict";
 
-const { Base } = require("./Base");
 const { Routes } = require("../session/Addresses");
 
-class UserProfile extends Base {
-  constructor(user, data) {
-    super(user.client);
+const { UserDetail } = require("./UserDetail");
 
+class UserProfile extends UserDetail {
+  constructor(user, data) {
+    super(user);
     this.id = String(data.id);
-    this.user = user;
 
     this._patch(data);
   }

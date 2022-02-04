@@ -1,10 +1,10 @@
 "use strict";
 
-const { Base } = require("./Base");
+const { UserDetail } = require("./UserDetail");
 
-class UserHistory extends Base {
+class UserHistory extends UserDetail {
   constructor(user, data) {
-    super(user.client);
+    super(user);
 
     this._patch(data);
   }

@@ -17,8 +17,8 @@ const Messages = {
   LOGIN_REJECTED: (username, password) =>
     `Could not access provided Scratch account (${username}) with this password: ${password}`,
 
-  FETCH_REJECTED: `The fetch request was rejected.`,
-  COMMENT_REJECTED: `The comments' request was rejected.`,
+  FETCH_REJECTED: "The fetch request was rejected.",
+  COMMENT_REJECTED: "The comments' request was rejected.",
 
   NOT_IMPLEMENTED: (what, name) => `Method ${what} not implemented on ${name}.`,
 };

@@ -54,7 +54,8 @@ class Client extends BaseClient {
   }
 
   isReady() {
-    return this.ws.status === Status.READY;
+    // eslint-disable-next-line no-undef
+    return this.session.status === Status.READY;
   }
 
   destroy() {
@@ -63,6 +64,7 @@ class Client extends BaseClient {
     this.emit(Events.DESTROYED);
   }
 
+  // eslint-disable-next-line no-unused-vars
   _validateOptions(options = this.options) {}
 }
 

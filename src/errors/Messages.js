@@ -15,7 +15,7 @@ const Messages = {
   RESPONSE_ERRORED: (error) => error,
 
   LOGIN_REJECTED: (username) =>
-    `Could not access the Scratch account (aka ${username}): An invalid password might be provided.`,
+    `Could not access the Scratch account (aka ${username}): An incorrect password might be provided.`,
 
   FETCH_REJECTED: "The fetch request was rejected.",
   COMMENT_REJECTED: "The comments' request was rejected.",

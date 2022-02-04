@@ -36,7 +36,7 @@ class Client extends BaseClient {
   }
 
   async login(username = this.username, password = this.password) {
-    if (!password || typeof password !== "string") throw new Error("USERNAME_INVALID");
+    if (!username || typeof username !== "string") throw new Error("USERNAME_INVALID");
     if (!password || typeof password !== "string") throw new Error("PASSWORD_INVALID");
 
     const loginResponse = await this.session.connect(username, password);

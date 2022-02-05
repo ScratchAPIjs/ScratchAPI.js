@@ -1,6 +1,6 @@
 "use strict";
 
 module.exports = {
-  ...require("./JSALError"),
+  ...require("./ErrorHandler"),
   ...require("./Messages"),
 };

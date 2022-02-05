@@ -94,7 +94,7 @@ class Project extends Base {
   }
 
   async modify(data) {
-    if ((await (this.author.fetch())).username !== this.client.username) {
+    if (this.author.username !== this.client.username) {
       throw new Error('PROJECT_NOT_YOURS', this.id);
     }
     return this.client.projects.modify(this.id, data);

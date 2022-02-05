@@ -15,6 +15,7 @@ class UserHistory extends UserDetail {
     } else {
       this.joinedAt ??= null;
     }
+    return this;
   }
 }
 

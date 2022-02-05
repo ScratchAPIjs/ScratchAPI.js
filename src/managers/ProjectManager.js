@@ -1,17 +1,26 @@
-const { BaseManager } = require("./BaseManager");
-const { Error } = require("../errors");
+"use strict";
+
 const { Routes } = require("../session/Addresses");
 
-class ProjectManager extends BaseManager {
-  constructor (client) {
-    super(client);
+const { Project } = require("../structures/Project");
+
+const { CachedManager } = require("./CachedManager");
+
+class ProjectManager extends CachedManager {
+  constructor(client, iterable) {
+    super(client, Project, iterable);
   }
 
-  getProject(projectID) {
-    return new Promise(async (resolve) => {
-      const response = await this.client.adapter.get(Routes.API.project(projectID));
-      resolve(response.data);
-    });
+  async fetch(project, { cache = true, force = false } = {}) {
+    const id = this.resolveId(project);
+    if (!force) {
+      const existing = this.cache.get(id);
+      if (existing) return existing;
+    }
+
+    const response = await this.client.adapter.get(Routes.API.project(id));
+
+    return this._add(response.data, cache);
   }
 }
 

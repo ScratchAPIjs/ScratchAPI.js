@@ -13,7 +13,7 @@ class UserManager extends CachedManager {
     const username = this.resolveName(user);
     if (!force) {
       const existing = this.cache.get(username);
-      if (existing && !existing.partial) return existing;
+      if (existing) return existing;
     }
 
     const response = await this.client.adapter.get(Routes.API.user(username));

@@ -28,9 +28,12 @@ const Routes = {
     user(username) {
       return `https://${Servers.API}/users/${username}/`;
     },
-    project(projectID) {
-      return `https://${Servers.PROJECTS}/${projectID}/`;
-    }
+    project(id) {
+      return `https://${Servers.API}/projects/${id}/`;
+    },
+    projectSource(id) {
+      return `https://${Servers.PROJECTS}/${id}/`;
+    },
   },
 };
 

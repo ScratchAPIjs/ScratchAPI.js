@@ -21,9 +21,7 @@ class Session {
     });
     if (response.isAxiosError) throw new Error("LOGIN_REJECTED", username);
 
-    this.id = Util.parseCookie(
-      response.headers["set-cookie"][0]
-    ).scratchsessionsid;
+    this.id = Util.parseCookie(response.headers["set-cookie"][0]).scratchsessionsid;
     this.token = response.data.token;
     this.adapter.defaults.headers.cookie += `scratchsessionsid=${this.id};`;
 

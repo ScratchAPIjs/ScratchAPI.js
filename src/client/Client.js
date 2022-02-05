@@ -51,10 +51,8 @@ class Client extends BaseClient {
   }
 
   async login(username = this.username, password = this.password) {
-    if (!username || typeof username !== "string")
-      throw new Error("USERNAME_INVALID");
-    if (!password || typeof password !== "string")
-      throw new Error("PASSWORD_INVALID");
+    if (!username || typeof username !== "string") throw new Error("USERNAME_INVALID");
+    if (!password || typeof password !== "string") throw new Error("PASSWORD_INVALID");
 
     await this.session.connect(username, password);
     const userResponse = await this.adapter.get(Routes.API.user(username));

@@ -4,6 +4,8 @@
     "JSAL",
     "linebreak",
     "Longname",
+    "scratchcsrftoken",
+    "scratchlanguage",
     "scratchsessionsid",
     "scratchteam",
     "typedefs"

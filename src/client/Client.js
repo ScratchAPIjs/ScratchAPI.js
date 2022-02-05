@@ -9,6 +9,8 @@ const { ClientUser } = require("../structures/ClientUser");
 const { UserManager } = require("../managers/UserManager");
 const { MessageEvent } = require('../events/messageEvent');
 
+require("dotenv").config();
+
 class Client extends BaseClient {
   constructor(options) {
     super(options);
@@ -38,7 +40,7 @@ class Client extends BaseClient {
     return this.readyTimestamp && Date.now() - this.readyTimestamp;
   }
 
-  async login(username = this.username, password = this.password) {
+  async login(username = process.env.SCRATCH_USERNAME, password = process.env.SCRATCH_PASSWORD) {
     if (!username || typeof username !== "string") throw new Error("USERNAME_INVALID");
     if (!password || typeof password !== "string") throw new Error("PASSWORD_INVALID");
 

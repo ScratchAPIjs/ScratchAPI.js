@@ -1,7 +1,5 @@
 "use strict";
 
-require("dotenv").config();
-
 const { Client } = require("../src");
 const client = new Client();
 
@@ -18,4 +16,4 @@ client.on("ready", () => {
   })
 });
 
-client.login(process.env.SCRATCH_USERNAME, process.env.SCRATCH_PASSWORD);
+client.login();

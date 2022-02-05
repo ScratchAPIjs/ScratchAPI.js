@@ -39,7 +39,7 @@ class Client extends BaseClient {
   }
 
   async login(username = this.username, password = this.password) {
-    if (!password || typeof password !== "string") throw new Error("USERNAME_INVALID");
+    if (!username || typeof username !== "string") throw new Error("USERNAME_INVALID");
     if (!password || typeof password !== "string") throw new Error("PASSWORD_INVALID");
 
     const loginResponse = await this.session.connect(username, password);
@@ -59,7 +59,8 @@ class Client extends BaseClient {
   }
 
   isReady() {
-    return this.ws.status === Status.READY;
+    // eslint-disable-next-line no-undef
+    return this.session.status === Status.READY;
   }
 
   destroy() {
@@ -68,6 +69,7 @@ class Client extends BaseClient {
     this.emit(Events.DESTROYED);
   }
 
+  // eslint-disable-next-line no-unused-vars
   _validateOptions(options = this.options) {}
 }
 

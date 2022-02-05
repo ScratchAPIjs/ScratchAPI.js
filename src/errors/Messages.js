@@ -1,6 +1,6 @@
 "use strict";
 
-const { register } = require("./Error");
+const { register } = require("./ErrorHandler");
 
 const Messages = {
   CLIENT_INVALID_OPTION: (prop, must) => `The ${prop} option must be ${must}`,
@@ -14,11 +14,11 @@ const Messages = {
   REQUEST_INVALID: (error) => error,
   RESPONSE_ERRORED: (error) => error,
 
-  LOGIN_REJECTED: (username, password) =>
-    `Could not access provided Scratch account (${username}) with this password: ${password}`,
+  LOGIN_REJECTED: (username) =>
+    `Could not access the Scratch account (aka ${username}): An incorrect password might be provided.`,
 
-  FETCH_REJECTED: `The fetch request was rejected.`,
-  COMMENT_REJECTED: `The comments' request was rejected.`,
+  FETCH_REJECTED: "The fetch request was rejected.",
+  COMMENT_REJECTED: "The comments' request was rejected.",
 
   NOT_IMPLEMENTED: (what, name) => `Method ${what} not implemented on ${name}.`,
 };

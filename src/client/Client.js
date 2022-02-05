@@ -9,6 +9,8 @@ const { ClientUser } = require("../structures/ClientUser");
 const { UserManager } = require("../managers/UserManager");
 const { MessageEvent } = require('../events/messageEvent');
 
+require("dotenv").config();
+
 class Client extends BaseClient {
   constructor(options) {
     super(options);
@@ -20,7 +22,8 @@ class Client extends BaseClient {
       username: { writable: true },
     });
     this.token = null;
-    this.username = null;
+    this.username = process.env.SCRATCH_USERNAME;
+    this.password = process.env.SCRATCH_PASSWORD;
 
     this.user = null;
     this.readyTimestamp = null;

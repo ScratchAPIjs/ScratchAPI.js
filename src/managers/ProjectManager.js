@@ -19,11 +19,7 @@ class ProjectManager extends CachedManager {
       throw new TypeError('TYPE_INVALID');
     }
 
-    const response = await this.client.adapter.request({
-      url: Routes.API.projectSource(id),
-      method: "PUT",
-      data: data
-    });
+    const response = await this.client.adapter.put(Routes.API.projectSource(id), data);
 
     return "Message Object (Coming Soon)";
   }

@@ -39,8 +39,15 @@ class User extends Base {
     return this;
   }
 
+  get partial() {
+    return typeof this.username === "string";
+  }
+
   async addComment(content) {
-    await this.client.session.addComment({ user: this.username, content: content });
+    await this.client.session.addComment({
+      user: this.username,
+      content: content,
+    });
     return "Message Object (Coming Soon)";
   }
 

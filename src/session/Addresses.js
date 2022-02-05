@@ -4,6 +4,7 @@ const Servers = {
   GENERAL: "scratch.mit.edu",
   API: "api.scratch.mit.edu",
   CDN: "uploads.scratch.mit.edu",
+  PROJECTS: "projects.scratch.mit.edu",
 };
 
 const Routes = {
@@ -26,6 +27,12 @@ const Routes = {
   API: {
     user(username) {
       return `https://${Servers.API}/users/${username}/`;
+    },
+    project(id) {
+      return `https://${Servers.API}/projects/${id}/`;
+    },
+    projectSource(id) {
+      return `https://${Servers.PROJECTS}/${id}/`;
     },
   },
 };

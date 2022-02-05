@@ -15,7 +15,7 @@
   },
   "scripts": {
     "sample_1": "node ./samples/basic_1",
-    "generate-docs": "npx jsdoc -c jsdoc.json"
+    "generate-docs": "npx jsdoc -c jsdoc.json",
     "lint": "eslint src"
   },
   "repository": {

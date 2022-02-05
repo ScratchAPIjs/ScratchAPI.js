@@ -2,19 +2,22 @@
   "name": "ScratchAPI.js",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "main": "src/index.js",
   "dependencies": {
+    "@discordjs/collection": "^0.5.0",
     "axios": "^0.25.0",
+    "dotenv": "^16.0.0",
     "node-fetch": "^3.2.0"
   },
   "devDependencies": {
+    "eslint": "^8.8.0",
     "node": "^16.6.1"
   },
   "scripts": {
     "start": "node --es-module-specifier-resolution=node ./src/index",
     "sample_1": "node --es-module-specifier-resolution=node ./samples/basic_1",
-    "generate-docs": "npx jsdoc -c jsdoc.json"
+    "generate-docs": "npx jsdoc -c jsdoc.json",
+    "lint": "eslint src"
   },
   "repository": {
     "type": "git",

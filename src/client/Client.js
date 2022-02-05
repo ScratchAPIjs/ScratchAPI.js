@@ -7,6 +7,7 @@ const { Routes } = require("../session/Addresses");
 const { BaseClient } = require("./BaseClient");
 const { ClientUser } = require("../structures/ClientUser");
 const { UserManager } = require("../managers/UserManager");
+const { ProjectManager } = require("../managers/ProjectManager");
 const { MessageEvent } = require('../events/messageEvent');
 
 class Client extends BaseClient {
@@ -28,6 +29,8 @@ class Client extends BaseClient {
     this.messageEvent = new MessageEvent(this);
 
     this.users = new UserManager(this);
+
+    this.projectManager = new ProjectManager(this);
   }
 
   get readyAt() {

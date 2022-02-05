@@ -93,8 +93,10 @@ class Project extends Base {
     return "Message Object (Coming Soon)";
   }
 
-  modifyProject(data) {
-    // if ((await this.author?.fetch()).profile)
+  async modifyProject(data) {
+    if ((await (this.author.fetch())).username !== this.client.username) {
+      throw new Error('PROJECT_NOT_YOURS', this.id);
+    }
     return this.client.projects.modify(this.id, data);
   }
 

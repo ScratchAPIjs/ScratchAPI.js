@@ -15,9 +15,7 @@ class ProjectManager extends CachedManager {
   async modify(id, dataArg) {
     if (dataArg === undefined) throw new Error('ARG_MISSING', 'data');
     let data = dataArg;
-    if (typeof dataArg === "string") {
-      data = JSON.parse(data);
-    } else if (typeof data !== "string") {
+    if (typeof data !== "string" && typeof data !== "object") {
       throw new TypeError('TYPE_INVALID');
     }
 
@@ -26,7 +24,6 @@ class ProjectManager extends CachedManager {
       method: "PUT",
       data: data
     });
-    console.log(response);
   }
 
   async fetch(project, { cache = true, force = false } = {}) {

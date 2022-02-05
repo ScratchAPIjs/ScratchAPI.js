@@ -18,13 +18,13 @@ client.on("ready", async () => {
 
   const project = await client.projects.fetch("624134306");
   console.log(project);
-  console.log((await project.author.fetch()).profile);
+  // console.log((await project.author.fetch()));
 
   ////client.on("message", message => {
   //   console.log(message);
   // })
 
-  console.log(await project.modifyProject('tests'));
+  console.log(await project.modifyProject());
 });
 
 client.login(process.env.SCRATCH_USERNAME, process.env.SCRATCH_PASSWORD);

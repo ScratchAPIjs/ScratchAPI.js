@@ -24,6 +24,8 @@ class ProjectManager extends CachedManager {
       method: "PUT",
       data: data
     });
+
+    return "Message Object (Coming Soon)";
   }
 
   async fetch(project, { cache = true, force = false } = {}) {

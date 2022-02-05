@@ -20,9 +20,18 @@ class Client extends BaseClient {
     Object.defineProperties(this, {
       token: { writable: true },
       username: { writable: true },
+      password: { writable: true },
     });
-    this.token = null;
-    this.username = null;
+    if (!this.username && "SCRATCH_USERNAME" in process.env) {
+      this.username = process.env.SCRATCH_USERNAME;
+    } else {
+      this.username = null;
+    }
+    if (!this.password && "SCRATCH_PASSWORD" in process.env) {
+      this.password = process.env.SCRATCH_PASSWORD;
+    } else {
+      this.password = null;
+    }
 
     this.user = null;
     this.readyTimestamp = null;
@@ -47,11 +56,10 @@ class Client extends BaseClient {
     if (!password || typeof password !== "string")
       throw new Error("PASSWORD_INVALID");
 
-    const loginResponse = await this.session.connect(username, password);
+    await this.session.connect(username, password);
     const userResponse = await this.adapter.get(Routes.API.user(username));
     this.user = new ClientUser(this, userResponse.data);
 
-    this.token = loginResponse.data.token;
     this.username = username;
 
     this.readyTimestamp = Date.now();

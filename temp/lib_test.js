@@ -8,7 +8,7 @@ const WebSocket = require("ws");
 
 let SERVER = "scratch.mit.edu";
 let PROJECTS_SERVER = "projects.scratch.mit.edu";
-let CDN_SERVER = "cdn.scratch.mit.edu";
+//let CDN_SERVER = "cdn.scratch.mit.edu";
 let CLOUD_SERVER = "clouddata.scratch.mit.edu";
 let API_SERVER = "api.scratch.mit.edu";
 
@@ -26,7 +26,8 @@ function request(options, cb) {
     }
   }
   if (options.body) headers["Content-Length"] = Buffer.byteLength(options.body);
-  if (options.sessionId) headers.Cookie += "scratchsessionsid=" + options.sessionId + ";";
+  if (options.sessionId)
+    headers.Cookie += "scratchsessionsid=" + options.sessionId + ";";
   let req = https.request(
     {
       hostname: options.hostname || SERVER,
@@ -51,7 +52,7 @@ function request(options, cb) {
 }
 
 function requestJSON(options, cb) {
-  request(options, function (err, body, response) {
+  request(options, function (err, body) {
     if (err) return cb(err);
     try {
       cb(null, JSON.parse(body));
@@ -130,12 +131,16 @@ Scratch.UserSession.create = function (username, password, cb) {
   );
 };
 Scratch.UserSession.prompt = function (cb) {
+  // eslint-disable-next-line no-undef
   let prompt = from("prompt");
   prompt.start();
-  prompt.get([{ name: "username" }, { name: "password", hidden: true }], function (err, results) {
-    if (err) return cb(err);
-    Scratch.UserSession.create(results.username, results.password, cb);
-  });
+  prompt.get(
+    [{ name: "username" }, { name: "password", hidden: true }],
+    function (err, results) {
+      if (err) return cb(err);
+      Scratch.UserSession.create(results.username, results.password, cb);
+    }
+  );
 };
 Scratch.UserSession.load = function (cb) {
   function prompt() {

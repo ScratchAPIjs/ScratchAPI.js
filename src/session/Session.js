@@ -19,7 +19,7 @@ class Session {
       method: "POST",
       data: { username: username, password: password },
     });
-    if (response.isAxiosError) throw new Error("LOGIN_REJECTED", username, password);
+    if (response.isAxiosError) throw new Error("LOGIN_REJECTED", username);
 
     this.id = Util.parseCookie(response.headers["set-cookie"][0]).scratchsessionsid;
     this.adapter.defaults.headers.cookie += `scratchsessionsid=${this.id};`;

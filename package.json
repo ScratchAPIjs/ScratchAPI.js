@@ -10,11 +10,13 @@
     "node-fetch": "^3.2.0"
   },
   "devDependencies": {
+    "eslint": "^8.8.0",
     "node": "^16.6.1"
   },
   "scripts": {
     "sample_1": "node ./samples/basic_1",
     "generate-docs": "npx jsdoc -c jsdoc.json"
+    "lint": "eslint src"
   },
   "repository": {
     "type": "git",

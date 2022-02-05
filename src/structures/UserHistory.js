@@ -1,24 +1,20 @@
 "use strict";
 
-const { Base } = require("./Base");
+const { UserDetail } = require("./UserDetail");
 
-class UserHistory extends Base {
+class UserHistory extends UserDetail {
   constructor(user, data) {
-    super(user.client);
+    super(user);
 
     this._patch(data);
   }
 
   _patch(data) {
     if ("joined" in data) {
-      this.joined = new Date(data.joined);
+      this.joinedAt = new Date(data.joined);
     } else {
-      this.joined ??= null;
+      this.joinedAt ??= null;
     }
-  }
-
-  get joinedAt() {
-    return new Date(this.joined);
   }
 }
 

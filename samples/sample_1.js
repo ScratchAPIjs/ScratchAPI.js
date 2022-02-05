@@ -1,7 +1,5 @@
 "use strict";
 
-require("dotenv").config();
-
 const { Client } = require("../src");
 const client = new Client();
 
@@ -27,4 +25,4 @@ client.on("ready", async () => {
   //console.log(await client.projectManager.getProject(639365883));
 });
 
-client.login(process.env.SCRATCH_USERNAME, process.env.SCRATCH_PASSWORD);
+client.login();

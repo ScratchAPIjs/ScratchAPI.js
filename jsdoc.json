@@ -1,0 +1,32 @@
+{
+  "source": {
+    "include": ["src"]
+  },
+  "opts": {
+    "template": "node_modules/docdash",
+    "destination": "docs",
+    "recurse": true
+  },
+  "docdash": {
+    "static": true,
+    "sort": true,
+    "search": true,
+    "collapse": true,
+    "typedefs": true,
+    "removeQuotes": "none",
+    "scripts": [],
+    "menu": {
+      "Repository": {
+        "href": "https://github.com/tsumuri3/Scratch-API-Librarys",
+        "target": "_blank",
+        "class": "menu-item",
+        "id": "repository"
+      }
+    }
+  },
+  "templates": {
+    "default": {
+      "useLongnameInNav": true
+    }
+  }
+}

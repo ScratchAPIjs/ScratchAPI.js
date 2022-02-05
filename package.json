@@ -14,7 +14,6 @@
     "node": "^16.6.1"
   },
   "scripts": {
-    "test": "node --es-module-specifier-resolution=node $npm_config_file",
     "generate-docs": "npx jsdoc -c jsdoc.json",
     "lint": "eslint src"
   },

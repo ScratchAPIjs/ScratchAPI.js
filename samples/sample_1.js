@@ -24,7 +24,7 @@ client.on("ready", async () => {
   //   console.log(message);
   // })
 
-  // console.log(await project.modifyProject());
+  // console.log(await project.modify());
 });
 
 client.login(process.env.SCRATCH_USERNAME, process.env.SCRATCH_PASSWORD);

@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-var $jsal = {};
-=======
 const fetch = require("node-fetch");
 
 var $jsal = {};
@@ -19,7 +16,6 @@ $jsal.CSRFToken =
   typeof document === "undefined"
     ? await $jsal.getCSRFToken()
     : document.cookie.match(/; scratchcsrftoken=(.+?);/)[1];
->>>>>>> 064a770c8b36da3cd3338cc91cc2f33ebd7e09b1
 $jsal.postProfileComment = (username, content, option) => {
   let json = { content: content, parent_id: "", commentee_id: "" };
   if (option !== void 0) {
@@ -34,11 +30,7 @@ $jsal.postProfileComment = (username, content, option) => {
       Accept: "text/html, */*; q=0.01",
       "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
       "X-Requested-With": "XMLHttpRequest",
-<<<<<<< HEAD
-      "X-CSRFToken": document.cookie.match(/; scratchcsrftoken=(.+?);/)[1],
-=======
       "X-CSRFToken": $jsal.CSRFToken,
->>>>>>> 064a770c8b36da3cd3338cc91cc2f33ebd7e09b1
     },
     body: JSON.stringify(json),
     credentials: "include",
@@ -52,8 +44,6 @@ $jsal.changeProject = (projectid, json, option) => {
     credentials: "include",
   });
 };
-<<<<<<< HEAD
-=======
 $jsal.toggleProfileComments = (username) => {
   fetch("/site-api/comments/user/" + username + "/toggle-comments/", {
     method: "POST",
@@ -64,7 +54,6 @@ $jsal.toggleProfileComments = (username) => {
     credentials: "include",
   });
 };
->>>>>>> 064a770c8b36da3cd3338cc91cc2f33ebd7e09b1
 $jsal.readSession = (afterreading) => {
   fetch("/session/", { headers: { "X-Requested-With": "XMLHttpRequest" }, credentials: "include" })
     .then((a) => a.json())
@@ -84,11 +73,7 @@ $jsal.readSession = (afterreading) => {
             Accept: "application/json",
             "Content-type": "application/json",
             "x-token": $jsal.session.user.token,
-<<<<<<< HEAD
-            "X-CSRFToken": document.cookie.match(/; scratchcsrftoken=(.+?);/)[1],
-=======
             "X-CSRFToken": $jsal.CSRFToken,
->>>>>>> 064a770c8b36da3cd3338cc91cc2f33ebd7e09b1
           },
           body: JSON.stringify(json),
           credentials: "include",
@@ -108,11 +93,7 @@ $jsal.readSession = (afterreading) => {
             Accept: "application/json",
             "Content-type": "application/json",
             "x-token": $jsal.session.user.token,
-<<<<<<< HEAD
-            "X-CSRFToken": document.cookie.match(/; scratchcsrftoken=(.+?);/)[1],
-=======
             "X-CSRFToken": $jsal.CSRFToken,
->>>>>>> 064a770c8b36da3cd3338cc91cc2f33ebd7e09b1
           },
           body: JSON.stringify(json),
           credentials: "include",
@@ -121,14 +102,7 @@ $jsal.readSession = (afterreading) => {
       $jsal.toggleProfileComments = () => {
         fetch("/site-api/comments/user/" + $jsal.session.user.username + "/toggle-comments/", {
           method: "POST",
-<<<<<<< HEAD
-          headers: {
-            "X-Requested-With": "XMLHttpRequest",
-            "X-CSRFToken": document.cookie.match(/; scratchcsrftoken=(.+?);/)[1],
-          },
-=======
           headers: { "X-Requested-With": "XMLHttpRequest", "X-CSRFToken": $jsal.CSRFToken },
->>>>>>> 064a770c8b36da3cd3338cc91cc2f33ebd7e09b1
           credentials: "include",
         });
       };

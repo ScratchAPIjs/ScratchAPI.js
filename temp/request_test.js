@@ -1,3 +1,4 @@
+const http = require("http");
 const https = require("https");
 
 class RequestOption {
@@ -89,6 +90,7 @@ class RequestConfig {
   }
 }
 
+// eslint-disable-next-line no-unused-vars
 class HTTPAdapter {
   #transport;
   #defaultConfig;
@@ -125,7 +127,7 @@ class HTTPAdapter {
             //console.log(response);
             resolve(Buffer.concat(parts).toString(), response);
           });
-        }
+        },
       );
       req.on("error", console.log);
       if (body) req.write(body);

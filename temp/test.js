@@ -1,6 +1,10 @@
 "use strict";
 
+<<<<<<< HEAD
+import { request } from "../functions/Request";
+=======
 const { request } = require("../functions/Request");
+>>>>>>> 064a770c8b36da3cd3338cc91cc2f33ebd7e09b1
 
 let Scratch = {};
 

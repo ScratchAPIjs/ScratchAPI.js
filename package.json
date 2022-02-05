@@ -14,8 +14,6 @@
     "node": "^16.6.1"
   },
   "scripts": {
-    "start": "node --es-module-specifier-resolution=node ./src/index",
-    "sample_1": "node --es-module-specifier-resolution=node ./samples/basic_1",
     "generate-docs": "npx jsdoc -c jsdoc.json",
     "lint": "eslint src"
   },

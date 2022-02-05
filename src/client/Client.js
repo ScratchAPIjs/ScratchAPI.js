@@ -22,8 +22,7 @@ class Client extends BaseClient {
       username: { writable: true },
     });
     this.token = null;
-    this.username = process.env.SCRATCH_USERNAME;
-    this.password = process.env.SCRATCH_PASSWORD;
+    this.username = null;
 
     this.user = null;
     this.readyTimestamp = null;
@@ -41,7 +40,7 @@ class Client extends BaseClient {
     return this.readyTimestamp && Date.now() - this.readyTimestamp;
   }
 
-  async login(username = this.username, password = this.password) {
+  async login(username = process.env.SCRATCH_USERNAME, password = process.env.SCRATCH_PASSWORD) {
     if (!username || typeof username !== "string") throw new Error("USERNAME_INVALID");
     if (!password || typeof password !== "string") throw new Error("PASSWORD_INVALID");
 

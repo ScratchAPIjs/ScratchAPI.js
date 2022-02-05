@@ -1,10 +1,5 @@
 # Scratch-API-Librarys
 
-## テストコード実行
-```sh
-npm test -file="PATH_TO_FILE"
-```
-
 ## 機能解説
 
 ### プロフィールにコメントする

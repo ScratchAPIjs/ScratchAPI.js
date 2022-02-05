@@ -1,28 +1,38 @@
 const { Constants } = require("../configs/Constants");
-const { Routes } = require("../session/Addresses");
+const { Routes, Servers } = require("../session/Addresses");
+const { Events } = require("../utils");
 
 class MessageEvent {
   constructor(client) {
     this.client = client;
-    this.messageCount = 0;
+    this.unreadMessage = 0;
   }
 
   async start() {
-    await this.client.adapter.get(`${Routes.API.user(this.client.username)}messages/count/`).then(res => {
-      this.messageCount = res.data.count;
-    });
-
-    this.eventUpdate();
+    this.unreadMessage = await this.client.adapter.get(`${Routes.API.user(this.client.username)}messages/count/`);
+    // console.log(messages)
     setInterval(this.eventUpdate.bind(this), Constants.API.MESSAGE_EVENT_FREQUENCE);
   }
 
-  eventUpdate() {
-    this.client.adapter.get(`${Routes.API.user(this.client.username)}messages/count/`).then(res => {
-      if (this.messageCount > res.data.count) {
-        this.client.emit("message", res.data.count); // TODO: Add message data
-      }
-      this.messageCount = res.data.count;
-    });
+  async eventUpdate() {
+    let unreadMessage = (await this.client.adapter.get(
+      `${Routes.API.user(this.client.username)}messages/count/?timestamp=${new Date().getTime()}`
+    )).data.count;
+    if (unreadMessage > this.unreadMessage) {
+      let uncheckedMessage = unreadMessage - this.unreadMessage;
+      let xToken = (await this.client.adapter.request(`https://${Servers.GENERAL}/session/`)).data.user.token;
+      let messages = (await this.client.adapter.request({
+        url: `${Routes.API.user(this.client.username)}messages?limit=${uncheckedMessage}&offset=0?timestamp=${new Date().getTime()}`,
+        method: 'GET',
+        headers: {
+          'x-token': xToken
+        }
+      })).data;
+      messages.forEach(message => {
+        this.client.emit(Events.READY, message);
+      });
+    }
+    this.unreadMessage = unreadMessage;
   }
 }
 

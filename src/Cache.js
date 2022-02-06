@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-const { Collection } = require("@discordjs/collection");
+const { Collection } = require('@discordjs/collection');
 
 class Cache extends Collection {}
 

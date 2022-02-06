@@ -1,6 +1,6 @@
-const { Constants } = require("../configs/Constants");
-const { Routes, Servers } = require("../session/Addresses");
-const { Events } = require("../utils");
+const { Constants } = require('../configs/Constants');
+const { Routes, Servers } = require('../session/Addresses');
+const { Events } = require('../utils');
 
 class MessageEvent {
   constructor(client) {
@@ -31,9 +31,9 @@ class MessageEvent {
           url: `${Routes.API.user(
             this.client.username,
           )}messages?limit=${uncheckedMessage}&offset=0?timestamp=${new Date().getTime()}`,
-          method: "GET",
+          method: 'GET',
           headers: {
-            "x-token": xToken,
+            'x-token': xToken,
           },
         })
       ).data;

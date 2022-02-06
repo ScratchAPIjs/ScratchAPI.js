@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-const { ProjectDetail } = require("./ProjectDetail");
+const { ProjectDetail } = require('./ProjectDetail');
 
 class ProjectHistory extends ProjectDetail {
   constructor(project, data) {
@@ -10,17 +10,17 @@ class ProjectHistory extends ProjectDetail {
   }
 
   _patch(data) {
-    if ("created" in data) {
+    if ('created' in data) {
       this.createdAt = new Date(data.created);
     } else {
       this.createdAt ??= null;
     }
-    if ("modified" in data) {
+    if ('modified' in data) {
       this.modifiedAt = new Date(data.modified);
     } else {
       this.modifiedAt ??= null;
     }
-    if ("shared" in data) {
+    if ('shared' in data) {
       this.sharedAt = new Date(data.shared);
     } else {
       this.sharedAt ??= null;

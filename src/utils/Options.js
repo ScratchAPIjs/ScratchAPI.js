@@ -1,14 +1,9 @@
-"use strict";
+'use strict';
 
-/**
- * Contains various utilities for client options.
- */
-export default class Options extends null {
-  /**
-   * The default client options.
-   * @returns {ClientOptions}
-   */
+class Options extends null {
   static createDefault() {
     return {};
   }
 }
+
+module.exports = { Options };

@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
 class BaseManager {
   constructor(client) {
-    Object.defineProperty(this, "client", { value: client });
+    Object.defineProperty(this, 'client', { value: client });
   }
 }
 

@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-const { ProjectDetail } = require("./ProjectDetail");
+const { ProjectDetail } = require('./ProjectDetail');
 
 class ProjectStatistic extends ProjectDetail {
   constructor(project, data) {
@@ -10,22 +10,22 @@ class ProjectStatistic extends ProjectDetail {
   }
 
   _patch(data) {
-    if ("views" in data) {
+    if ('views' in data) {
       this.views = Number(data.views);
     } else {
       this.views ??= null;
     }
-    if ("loves" in data) {
+    if ('loves' in data) {
       this.loves = Number(data.loves);
     } else {
       this.loves ??= null;
     }
-    if ("favorites" in data) {
+    if ('favorites' in data) {
       this.favorites = Number(data.favorites);
     } else {
       this.favorites ??= null;
     }
-    if ("remixes" in data) {
+    if ('remixes' in data) {
       this.remixes = Number(data.remixes);
     } else {
       this.remixes ??= null;

@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
-const { Routes } = require("../session/Addresses");
+const { Routes } = require('../session/Addresses');
 
-const { UserDetail } = require("./UserDetail");
+const { UserDetail } = require('./UserDetail');
 
 class UserProfile extends UserDetail {
   constructor(user, data) {
@@ -13,22 +13,22 @@ class UserProfile extends UserDetail {
   }
 
   _patch(data) {
-    if ("images" in data) {
+    if ('images' in data) {
       this.avatars = data.images;
     } else {
       this.avatars ??= null;
     }
-    if ("status" in data) {
+    if ('status' in data) {
       this.status = data.status;
     } else {
       this.status ??= null;
     }
-    if ("bio" in data) {
+    if ('bio' in data) {
       this.biography = data.bio;
     } else {
       this.biography ??= null;
     }
-    if ("country" in data) {
+    if ('country' in data) {
       this.locale = data.country;
     } else {
       this.locale ??= null;

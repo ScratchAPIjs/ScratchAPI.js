@@ -1,12 +1,12 @@
-"use strict";
+'use strict';
 
-const { Base } = require("./Base");
+const { Base } = require('./Base');
 
 class ProjectDetail extends Base {
   constructor(project) {
     super(project.client);
 
-    Object.defineProperty(this, "project", { value: project });
+    Object.defineProperty(this, 'project', { value: project });
   }
 }
 

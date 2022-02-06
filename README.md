@@ -5,7 +5,7 @@ The Scratch API Library
 This is a [Node.js](https://nodejs.org/en/) module that makes it easy to access the [Scratch](https://scratch.mit.edu/) API.
 (It is under development.)
 
-## Support
+## Features
 This library allows you to do the following:
 - Log in to your Scratch account.
 - Send comments to yourself and other users.

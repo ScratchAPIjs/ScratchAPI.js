@@ -9,7 +9,14 @@ This library allows you to do the following:
 - Log in to your Scratch account.
 - Send comments to yourself and other users.
 - Receive notifications to your account.
-- _There's more to come soon! _
+_There will be more to come!_
+
+## License
+This library contains the following artifacts distributed under the license of the **Apache License, Version 2.0**:
+- [`@discordjs/collection`](https://github.com/discordjs/discord.js/tree/main/packages/collection)
+
+## Acknowledgements
+This library is based on the design of [Discord.js](https://github.com/discordjs/discord.js). With thanks to Discord.js, the awesome library.
 
 ## Example usage
 ```js
@@ -42,10 +49,3 @@ client.on("ready", async () => {
 
 client.login();
 ```
-
-## License
-This library contains the following artifacts distributed under the license of the **Apache License, Version 2.0**:
-- [`@discordjs/collection`](https://github.com/discordjs/discord.js/tree/main/packages/collection)
-
-## Acknowledgements
-This library is based on the design of [Discord.js](https://github.com/discordjs/discord.js). With thanks to Discord.js, the awesome library.

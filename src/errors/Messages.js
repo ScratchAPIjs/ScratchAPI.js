@@ -22,6 +22,11 @@ const Messages = {
 
   NOT_IMPLEMENTED: (what, name) => `Method ${what} not implemented on ${name}.`,
 
+  PROJECT_NOT_YOURS: (projectId) => `You are not author of this project (aka id: ${projectId}).\nCan't modify.`,
+  PROJECT_NOT_FOUND: (projectId) => `Project (aka id: ${projectId}) not found.`,
+
+  ARG_MISSING: (name) => `Missing argument: ${name}`,
+  
   TEST_ERROR: "This is an error for the test.",
 };
 

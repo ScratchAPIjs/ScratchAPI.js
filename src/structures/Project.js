@@ -50,6 +50,13 @@ class Project extends Base {
     return "Message Object (Coming Soon)";
   }
 
+  async modify(data) {
+    if (this.author.username !== this.client.username) {
+      throw new Error('PROJECT_NOT_YOURS', this.id);
+    }
+    return this.client.projects.modify(this.id, data);
+  }
+
   fetch(force = true) {
     return this.client.projects.fetch(this.id, { force });
   }

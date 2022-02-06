@@ -18,7 +18,7 @@ client.on('ready', async () => {
   console.log(project);
   // console.log((await project.author.fetch()));
 
-  ////client.on("message", message => {
+  ////client.on('message', message => {
   //   console.log(message);
   // })
 

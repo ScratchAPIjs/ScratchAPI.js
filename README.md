@@ -1,5 +1,5 @@
 # ScratchAPI.js
-The Scratch API Library
+A great library for using Scratch API.
 
 ## About
 This is a [Node.js](https://nodejs.org/en/) module that makes it easy to access the [Scratch](https://scratch.mit.edu/) API.

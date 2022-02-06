@@ -5,9 +5,9 @@
     "ecmaVersion": "latest"
   },
   "rules": {
-    "indent": ["warn", 2],
+    "indent": ["warn", 2, { "SwitchCase": 1 }],
     "linebreak-style": ["error", "windows"],
-    "quotes": ["warn", "double"],
+    "quotes": ["off", "single"],
     "semi": ["warn", "always"]
   }
 }

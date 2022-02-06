@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
-const { Base } = require("./Base");
+const { Base } = require('./Base');
 
-const { UserHistory } = require("./UserHistory");
-const { UserProfile } = require("./UserProfile");
+const { UserHistory } = require('./UserHistory');
+const { UserProfile } = require('./UserProfile');
 
 class User extends Base {
   constructor(client, data) {
@@ -15,23 +15,23 @@ class User extends Base {
   }
 
   _patch(data) {
-    if ("id" in data) {
+    if ('id' in data) {
       this.id = String(data.id);
     } else {
       this.id ??= null;
     }
-    if ("scratchteam" in data) {
+    if ('scratchteam' in data) {
       this.scratchTeam = Boolean(data.scratchteam);
     } else {
       this.scratchTeam ??= null;
     }
-    if ("history" in data) {
+    if ('history' in data) {
       this.history = new UserHistory(this, data.history);
     } else {
       this.history ??= null;
     }
 
-    if ("profile" in data) {
+    if ('profile' in data) {
       this.profile = new UserProfile(this, data.profile);
     } else {
       this.profile ??= null;
@@ -39,9 +39,16 @@ class User extends Base {
     return this;
   }
 
+  get partial() {
+    return typeof this.username === 'string';
+  }
+
   async addComment(content) {
-    await this.client.session.addComment({ user: this.username, content: content });
-    return "Message Object (Coming Soon)";
+    await this.client.session.addComment({
+      user: this.username,
+      content: content,
+    });
+    return 'Message Object (Coming Soon)';
   }
 
   fetch(force = true) {

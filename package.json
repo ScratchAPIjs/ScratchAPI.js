@@ -1,5 +1,5 @@
 {
-  "name": "@scratch-api-library/scratch.js",
+  "name": "@scratch-api-library/scratchapi.js",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
@@ -10,13 +10,14 @@
     "node-fetch": "^3.2.0"
   },
   "devDependencies": {
+    "docdash": "^1.2.0",
     "eslint": "^8.8.0",
     "node": "^16.6.1"
   },
   "scripts": {
-    "start": "node --es-module-specifier-resolution=node ./src/index",
-    "sample_1": "node --es-module-specifier-resolution=node ./samples/basic_1",
-    "generate-docs": "npx jsdoc -c jsdoc.json",
+    "sample_1": "node samples/sample_1.js",
+    "generate-docs": "jsdoc -c jsdoc.json",
+    "fmt": "prettier --write src/**/*.js",
     "lint": "eslint src"
   },
   "repository": {

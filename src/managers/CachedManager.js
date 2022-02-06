@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 
-const { DataManager } = require("./DataManager");
-const { Cache } = require("../Cache");
+const { DataManager } = require('./DataManager');
+const { Cache } = require('../Cache');
 
 class CachedManager extends DataManager {
   constructor(client, holds, items) {
     super(client, holds);
 
-    Object.defineProperty(this, "_cache", { value: new Cache() });
+    Object.defineProperty(this, '_cache', { value: new Cache() });
 
     if (items) {
       for (const item of items) {

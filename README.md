@@ -19,7 +19,7 @@ This library contains the following artifacts distributed under the license of t
 ## Acknowledgements
 #### This library is based on the design of [Discord.js](https://github.com/discordjs/discord.js). With thanks to Discord.js, the awesome library.
 It also contains the following modules:
-- [axios](https://github.com/axios/axios)
+- [`axios`](https://github.com/axios/axios)
 
 ## Example usage
 ```js

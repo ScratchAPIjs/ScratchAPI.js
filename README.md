@@ -1,6 +1,17 @@
 # Scratch-API-Librarys
+
 ## About
-### Example usage
+This is a Node.js module that makes it easy to access the Scratch API.
+(It is under development.)
+
+## Support
+This library allows you to do the following:
+- Log in to your Scratch account.
+- Send comments to yourself and other users.
+- Receive notifications to your account.
+- _There's more to come soon! _
+
+## Example usage
 ```js
 const { Client } = require("../src");
 const client = new Client();

@@ -34,7 +34,7 @@ client.login();
 
 ## License
 This library contains the following artifacts distributed under the license of the Apache License, Version 2.0.
-- (`@discordjs/collection`)[https://github.com/discordjs/discord.js/tree/main/packages/collection]
+- [`@discordjs/collection`](https://github.com/discordjs/discord.js/tree/main/packages/collection)
 
 ## Acknowledgements
 This library is based on the design of Discord.js. With thanks to Discord.js, the awesome library.

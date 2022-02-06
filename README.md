@@ -1,5 +1,5 @@
 # Scratch-API-Librarys
-
+## About
 ### Example usage
 ```js
 const { Client } = require("../src");
@@ -32,27 +32,9 @@ client.on("ready", async () => {
 client.login();
 ```
 
-### プロフィールにコメントする
-```js
-$jsal.postProfileComment(username,content)
-```
-### project.jsonを書き換える
-```js
-$jsal.changeProject(projectid,json)
-```
-### プロフィールのコメント欄を閉じる・開ける
-```js
-$jsal.toggleProfileComments(username)
-```
-### sessionを読み込み、新たな関数を追加する
-```js
-$jsal.readSession(読み込んだ後実行する関数)
-```
-### プロジェクトにコメントする
-```js
-$jsal.postProjectComment(projectid,content)
-```
-### スタジオにコメントする
-```js
-$jsal.postStudioComment(studioid,content)
-```
+## License
+This library contains the following artifacts distributed under the license of the Apache License, Version 2.0.
+- `@discordjs/collection`
+
+## Acknowledgements
+This library is based on the design of Discord.js. With thanks to Discord.js, the awesome library.

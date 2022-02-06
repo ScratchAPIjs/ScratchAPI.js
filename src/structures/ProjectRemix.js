@@ -10,16 +10,10 @@ class ProjectRemix extends ProjectDetail {
   }
 
   _patch(data) {
-    if ('parent' in data) {
-      this.parent = data.parent;
-    } else {
-      this.parent ??= null;
-    }
-    if ('root' in data) {
-      this.root = data.root;
-    } else {
-      this.root ??= null;
-    }
+    const assign = this._makeAssigner(data);
+
+    assign('parent');
+    assign('root');
     return this;
   }
 }

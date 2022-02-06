@@ -1,13 +1,12 @@
 {
-  "name": "ScratchAPI.js",
+  "name": "@scratchapijs/scratchapi.js",
   "version": "1.0.0",
-  "description": "",
+  "description": "A great Library for the Scratch API",
   "main": "src/index.js",
   "dependencies": {
     "@discordjs/collection": "^0.5.0",
     "axios": "^0.25.0",
-    "dotenv": "^16.0.0",
-    "node-fetch": "^3.2.0"
+    "dotenv": "^16.0.0"
   },
   "devDependencies": {
     "docdash": "^1.2.0",
@@ -22,12 +21,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tsumuri3/Scratch-API-Librarys.git"
+    "url": "git+https://github.com/ScratchAPIjs/ScratchAPI.js.git"
   },
   "bugs": {
-    "url": "https://github.com/tsumuri3/Scratch-API-Librarys/issues"
+    "url": "https://github.com/ScratchAPIjs/ScratchAPI.js/issues"
   },
-  "homepage": "https://github.com/tsumuri3/Scratch-API-Librarys#readme",
+  "homepage": "https://github.com/ScratchAPIjs/ScratchAPI.js#readme",
   "author": "",
   "license": "ISC"
 }

@@ -9,6 +9,8 @@ client.on("ready", async () => {
   console.log("Ready!");
 
   //client.messageEvent.start();
+
+  // Stop messageEvent
   //client.messageEvent.clear();
 
   console.log(client.user.history.joinedAt);

@@ -33,7 +33,7 @@ client.login();
 ```
 
 ## License
-This library contains the following artifacts distributed under the license of the Apache License, Version 2.0.
+This library contains the following artifacts distributed under the license of the Apache License, Version 2.0:
 - [`@discordjs/collection`](https://github.com/discordjs/discord.js/tree/main/packages/collection)
 
 ## Acknowledgements

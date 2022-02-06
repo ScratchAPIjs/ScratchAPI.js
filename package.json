@@ -1,7 +1,7 @@
 {
   "name": "@scratchapijs/scratchapi.js",
   "version": "1.0.0",
-  "description": "A great Library for using Scratch API",
+  "description": "A great Library for the Scratch API",
   "main": "src/index.js",
   "devDependencies": {
     "@discordjs/collection": "^0.5.0",

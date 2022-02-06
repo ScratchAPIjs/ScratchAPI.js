@@ -38,7 +38,7 @@ class MessageEvent {
         })
       ).data;
       messages.forEach((message) => {
-        this.client.emit(Events.READY, message);
+        this.client.emit(Events.MESSAGE, message);
       });
     }
     this.unreadMessage = unreadMessage;

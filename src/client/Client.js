@@ -59,10 +59,10 @@ class Client extends BaseClient {
     await this.session.connect(username, password);
     const userResponse = await this.adapter.get(Routes.API.user(username));
     this.user = new ClientUser(this, userResponse.data);
-
     this.username = username;
 
     this.readyTimestamp = Date.now();
+    if (this.options.events.message) await this.messageEvent.start();
 
     this.emit(Events.READY, this.username);
     return this.user;

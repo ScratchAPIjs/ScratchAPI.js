@@ -14,7 +14,7 @@ class BaseClient extends EventEmitter {
       throw new TypeError('INVALID_TYPE', 'options', 'object', true);
     }
 
-    this.options = Util.mergeDefault(DefaultOptions.client, options);
+    this.options = Util.mergeDefault(DefaultOptions.Client, options);
 
     this.session = new Session(this);
     this.adapter = this.session.adapter;

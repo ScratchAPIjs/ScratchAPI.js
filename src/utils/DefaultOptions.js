@@ -4,7 +4,12 @@ const { Constants } = require('../configs/Constants');
 const { Servers } = require('../session/Addresses');
 
 class DefaultOptions extends null {
-  static client = {};
+  static Client = {
+    events: {
+      message: true,
+    },
+  };
+
   static REST = {
     headers: {
       'user-agent': 'null',

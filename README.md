@@ -15,7 +15,7 @@ _There will be more to come!_
 
 ## Acknowledgements
 #### This library is based on the design of [Discord.js](https://github.com/discordjs/discord.js).
-    \－With thanks to Discord.js, the awesome library.
+\   －With thanks to Discord.js, the awesome library.
 
 It also contains the following modules:
 - [`@discordjs/collection`](https://github.com/discordjs/discord.js/tree/main/packages/collection)

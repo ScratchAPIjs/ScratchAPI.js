@@ -1,22 +1,22 @@
 'use strict';
 
-const kCode = Symbol('code');
+const code = Symbol('code');
 const messages = new Map();
 
-function makeModuleError(Base) {
+function makeError(Base) {
   return class ModuleError extends Base {
     constructor(key, ...args) {
       super(message(key, args));
-      this[kCode] = key;
+      this[code] = key;
       if (Error.captureStackTrace) Error.captureStackTrace(this, ModuleError);
     }
 
     get name() {
-      return `${super.name} [${this[kCode]}]`;
+      return `${super.name} [${this[code]}]`;
     }
 
     get code() {
-      return this[kCode];
+      return this[code];
     }
   };
 }
@@ -31,13 +31,13 @@ function message(key, args) {
   return String(...args);
 }
 
-function register(sym, val) {
-  messages.set(sym, typeof val === 'function' ? val : String(val));
+function register(symbol, value) {
+  messages.set(symbol, typeof value === 'function' ? value : String(value));
 }
 
 module.exports = {
   register,
-  Error: makeModuleError(Error),
-  TypeError: makeModuleError(TypeError),
-  RangeError: makeModuleError(RangeError),
+  Error: makeError(Error),
+  TypeError: makeError(TypeError),
+  RangeError: makeError(RangeError),
 };

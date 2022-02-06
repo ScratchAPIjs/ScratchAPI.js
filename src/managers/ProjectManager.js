@@ -1,8 +1,7 @@
 'use strict';
 
-
-const { Routes } = require("../session/Addresses");
-const { Error } = require("../errors");
+const { Routes } = require('../session/Addresses');
+const { Error } = require('../errors');
 
 const { Project } = require('../structures/Project');
 
@@ -25,7 +24,6 @@ class ProjectManager extends CachedManager {
     const response = await this.client.adapter.put(Routes.API.projectSource(id), data);
 
     return 'Message Object (Coming Soon)';
-
   }
 
   async fetch(project, { cache = true, force = false } = {}) {

@@ -14,7 +14,7 @@ client.on('ready', async () => {
   console.log(client.user.profile.avatar);
   console.log(client.user.profile.avatarURL());
 
-  const project = await client.projects.fetch("639429724");
+  const project = await client.projects.fetch('639429724');
   console.log(project);
   // console.log((await project.author.fetch()));
 

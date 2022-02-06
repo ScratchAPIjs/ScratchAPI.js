@@ -22,7 +22,6 @@ const Messages = {
 
   NOT_IMPLEMENTED: (what, name) => `Method ${what} not implemented on ${name}.`,
 
-
   PROJECT_NOT_YOURS: (projectId) =>
     `You are not author of this project (aka id: ${projectId}).\nCan't modify.`,
 

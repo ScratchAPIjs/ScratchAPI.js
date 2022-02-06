@@ -1,7 +1,7 @@
 # Scratch-API-Librarys
 
 ### Example usage
-```
+```js
 const { Client } = require("../src");
 const client = new Client();
 
@@ -9,6 +9,8 @@ client.on("ready", async () => {
   console.log("Ready!");
 
   //client.messageEvent.start();
+
+  // Stop messageEvent
   //client.messageEvent.clear();
 
   console.log(client.user.history.joinedAt);
@@ -16,19 +18,19 @@ client.on("ready", async () => {
   console.log(client.user.profile.avatar);
   console.log(client.user.profile.avatarURL());
 
-  const project = await client.projects.fetch("624134306");
+  const project = await client.projects.fetch(ProjectID);
   console.log(project);
   console.log((await project.author.fetch()).profile);
 
-  ////client.on("message", message => {
-  //   console.log(message);
-  // })
+  client.on("message", message => {
+    console.log(message);
+  })
 
-  //console.log(await client.projectManager.getProject(639365883));
+  console.log(await client.projectManager.getProject(ProjectID));
 });
 
 client.login();
-
+```
 
 ### プロフィールにコメントする
 ```js

@@ -9,6 +9,7 @@ This library allows you to do the following:
 - Log in to your Scratch account.
 - Send comments to yourself and other users.
 - Receive notifications to your account.
+
 _There will be more to come!_
 
 ## License

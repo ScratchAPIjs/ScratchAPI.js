@@ -6,8 +6,8 @@ const client = new Client();
 client.on('ready', async () => {
   console.log('Ready!');
 
-  //client.messageEvent.start();
-  //client.messageEvent.clear();
+  await client.messageEvent.start();
+  client.messageEvent.clear();
 
   console.log(client.user.history.joinedAt);
   console.log(client.user.profile.url);

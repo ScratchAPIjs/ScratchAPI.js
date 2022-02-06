@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
-const { Base } = require("./Base");
+const { Base } = require('./Base');
 
-const { UserHistory } = require("./UserHistory");
-const { UserProfile } = require("./UserProfile");
+const { UserHistory } = require('./UserHistory');
+const { UserProfile } = require('./UserProfile');
 
 class User extends Base {
   constructor(client, data) {
@@ -22,11 +22,12 @@ class User extends Base {
     assign("history", new UserHistory(this, data.history));
 
     assign("profile", new UserProfile(this, data.profile));
+
     return this;
   }
 
   get partial() {
-    return typeof this.username === "string";
+    return typeof this.username === 'string';
   }
 
   async addComment(content) {
@@ -34,7 +35,7 @@ class User extends Base {
       user: this.username,
       content: content,
     });
-    return "Message Object (Coming Soon)";
+    return 'Message Object (Coming Soon)';
   }
 
   fetch(force = true) {

@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
 class Base {
   constructor(client) {
-    Object.defineProperty(this, "client", { value: client });
+    Object.defineProperty(this, 'client', { value: client });
   }
 
   _clone() {

@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
-const { Routes } = require("../session/Addresses");
+const { Routes } = require('../session/Addresses');
 
-const { UserDetail } = require("./UserDetail");
+const { UserDetail } = require('./UserDetail');
 
 class UserProfile extends UserDetail {
   constructor(user, data) {
@@ -19,6 +19,7 @@ class UserProfile extends UserDetail {
     assign("status");
     assign(["biography", "bio"]);
     assign(["locale", "country"]);
+
     return this;
   }
 

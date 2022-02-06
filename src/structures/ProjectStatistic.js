@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-const { ProjectDetail } = require("./ProjectDetail");
+const { ProjectDetail } = require('./ProjectDetail');
 
 class ProjectStatistic extends ProjectDetail {
   constructor(project, data) {

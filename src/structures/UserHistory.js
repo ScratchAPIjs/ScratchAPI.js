@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-const { UserDetail } = require("./UserDetail");
+const { UserDetail } = require('./UserDetail');
 
 class UserHistory extends UserDetail {
   constructor(user, data) {
@@ -13,7 +13,6 @@ class UserHistory extends UserDetail {
     const assign = this._makeAssigner(data);
 
     assign(["joinedAt", "joined"]);
-
     return this;
   }
 }

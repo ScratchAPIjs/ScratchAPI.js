@@ -1,15 +1,15 @@
-"use strict";
+'use strict';
 
-const { Events } = require("../utils");
-const { Error } = require("../errors");
-const { Routes } = require("../session/Addresses");
+const { Events } = require('../utils');
+const { Error } = require('../errors');
+const { Routes } = require('../session/Addresses');
 
-const { BaseClient } = require("./BaseClient");
-const { ClientUser } = require("../structures/ClientUser");
+const { BaseClient } = require('./BaseClient');
+const { ClientUser } = require('../structures/ClientUser');
 
-const { UserManager } = require("../managers/UserManager");
-const { MessageEvent } = require("../events/messageEvent");
-const { ProjectManager } = require("../managers/ProjectManager");
+const { UserManager } = require('../managers/UserManager');
+const { MessageEvent } = require('../events/messageEvent');
+const { ProjectManager } = require('../managers/ProjectManager');
 
 class Client extends BaseClient {
   constructor(options) {
@@ -22,12 +22,12 @@ class Client extends BaseClient {
       username: { writable: true },
       password: { writable: true },
     });
-    if (!this.username && "SCRATCH_USERNAME" in process.env) {
+    if (!this.username && 'SCRATCH_USERNAME' in process.env) {
       this.username = process.env.SCRATCH_USERNAME;
     } else {
       this.username = null;
     }
-    if (!this.password && "SCRATCH_PASSWORD" in process.env) {
+    if (!this.password && 'SCRATCH_PASSWORD' in process.env) {
       this.password = process.env.SCRATCH_PASSWORD;
     } else {
       this.password = null;
@@ -51,8 +51,8 @@ class Client extends BaseClient {
   }
 
   async login(username = this.username, password = this.password) {
-    if (!username || typeof username !== "string") throw new Error("USERNAME_INVALID");
-    if (!password || typeof password !== "string") throw new Error("PASSWORD_INVALID");
+    if (!username || typeof username !== 'string') throw new Error('USERNAME_INVALID');
+    if (!password || typeof password !== 'string') throw new Error('PASSWORD_INVALID');
 
     await this.session.connect(username, password);
     const userResponse = await this.adapter.get(Routes.API.user(username));

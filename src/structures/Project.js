@@ -1,11 +1,11 @@
-"use strict";
+'use strict';
 
-const { Base } = require("./Base");
-const { User } = require("./User");
+const { Base } = require('./Base');
+const { User } = require('./User');
 
-const { ProjectHistory } = require("./ProjectHistory");
-const { ProjectStatistic } = require("./ProjectStatistic");
-const { ProjectRemix } = require("./ProjectRemix");
+const { ProjectHistory } = require('./ProjectHistory');
+const { ProjectStatistic } = require('./ProjectStatistic');
+const { ProjectRemix } = require('./ProjectRemix');
 
 class Project extends Base {
   constructor(client, data) {
@@ -47,7 +47,7 @@ class Project extends Base {
       project: this.id,
       content: content,
     });
-    return "Message Object (Coming Soon)";
+    return 'Message Object (Coming Soon)';
   }
 
   async modify(data) {

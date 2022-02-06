@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-const { ProjectDetail } = require("./ProjectDetail");
+const { ProjectDetail } = require('./ProjectDetail');
 
 class ProjectHistory extends ProjectDetail {
   constructor(project, data) {
@@ -15,7 +15,6 @@ class ProjectHistory extends ProjectDetail {
     assign(["createdAt", "created"], new Date(data.created));
     assign(["modifiedAt", "modified"], new Date(data.modified));
     assign(["sharedAt", "shared"], new Date(data.shared));
-
     return this;
   }
 }

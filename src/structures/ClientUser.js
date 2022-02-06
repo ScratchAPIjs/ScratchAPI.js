@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-const { User } = require("./User");
+const { User } = require('./User');
 
 class ClientUser extends User {}
 

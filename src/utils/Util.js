@@ -1,17 +1,17 @@
-"use strict";
+'use strict';
 
 void (function consoleLogColorizer() {
   let isColorKept = false;
   const colors = {
-    black: "\u001b[30m",
-    red: "\u001b[31m",
-    green: "\u001b[32m",
-    yellow: "\u001b[33m",
-    blue: "\u001b[34m",
-    magenta: "\u001b[35m",
-    cyan: "\u001b[36m",
-    white: "\u001b[37m",
-    default: "\u001b[39m",
+    black: '\u001b[30m',
+    red: '\u001b[31m',
+    green: '\u001b[32m',
+    yellow: '\u001b[33m',
+    blue: '\u001b[34m',
+    magenta: '\u001b[35m',
+    cyan: '\u001b[36m',
+    white: '\u001b[37m',
+    default: '\u001b[39m',
   };
   const coloResetter = {
     apply: function (target, thisArg, argumentsList) {
@@ -23,7 +23,7 @@ void (function consoleLogColorizer() {
   console.log = new Proxy(console.log, coloResetter);
   console.setColor = (color, permanent = false) => {
     color = color.toLowerCase();
-    if (!(typeof color === "string" && color in colors)) color = "default";
+    if (!(typeof color === 'string' && color in colors)) color = 'default';
     process.stdout.write(colors[color]);
     isColorKept = permanent;
     return console;
@@ -35,8 +35,8 @@ void (function consoleLogColorizer() {
 })();
 
 class Util extends null {
-  static isObject(d) {
-    typeof d === "object" && d !== null;
+  isObject(d) {
+    return typeof d === 'object' && d !== null;
   }
   static cloneObject(obj) {
     return Object.assign(Object.create(obj), obj);
@@ -57,13 +57,13 @@ class Util extends null {
 
   static parseCookie(cookie) {
     var cookies = {};
-    var each = cookie.split(";");
+    var each = cookie.split(';');
     var i = each.length;
     while (i--) {
-      if (each[i].indexOf("=") === -1) {
+      if (each[i].indexOf('=') === -1) {
         continue;
       }
-      var pair = each[i].split("=");
+      var pair = each[i].split('=');
       cookies[pair[0].trim()] = pair[1].trim();
     }
     return cookies;

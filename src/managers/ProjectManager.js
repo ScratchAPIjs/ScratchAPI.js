@@ -1,11 +1,11 @@
-"use strict";
+'use strict';
 
-const { Routes } = require("../session/Addresses");
-const { Error } = require("../errors");
+const { Routes } = require('../session/Addresses');
+const { Error } = require('../errors');
 
-const { Project } = require("../structures/Project");
+const { Project } = require('../structures/Project');
 
-const { CachedManager } = require("./CachedManager");
+const { CachedManager } = require('./CachedManager');
 
 class ProjectManager extends CachedManager {
   constructor(client, iterable) {
@@ -15,13 +15,15 @@ class ProjectManager extends CachedManager {
   async modify(id, dataArg) {
     if (dataArg === undefined) throw new Error('ARG_MISSING', 'data');
     let data = dataArg;
-    if (typeof data !== "string" && typeof data !== "object") {
+
+    if (typeof data !== 'string' && typeof data !== 'object') {
       throw new TypeError('TYPE_INVALID');
     }
 
+    // eslint-disable-next-line no-unused-vars
     const response = await this.client.adapter.put(Routes.API.projectSource(id), data);
 
-    return "Message Object (Coming Soon)";
+    return 'Message Object (Coming Soon)';
   }
 
   async fetch(project, { cache = true, force = false } = {}) {

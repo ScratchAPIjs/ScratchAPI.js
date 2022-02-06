@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-const { ProjectDetail } = require("./ProjectDetail");
+const { ProjectDetail } = require('./ProjectDetail');
 
 class ProjectRemix extends ProjectDetail {
   constructor(project, data) {
@@ -14,7 +14,6 @@ class ProjectRemix extends ProjectDetail {
 
     assign("parent");
     assign("root");
-
     return this;
   }
 }

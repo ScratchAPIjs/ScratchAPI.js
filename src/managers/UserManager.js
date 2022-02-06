@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
-const { CachedManager } = require("./CachedManager");
-const { User } = require("../structures/User");
-const { Routes } = require("../session/Addresses");
+const { CachedManager } = require('./CachedManager');
+const { User } = require('../structures/User');
+const { Routes } = require('../session/Addresses');
 
 class UserManager extends CachedManager {
   constructor(client, iterable) {
@@ -22,7 +22,7 @@ class UserManager extends CachedManager {
 
   resolveName(nameOrInstance) {
     if (nameOrInstance instanceof User) return nameOrInstance.username;
-    if (typeof nameOrInstance === "string") return nameOrInstance;
+    if (typeof nameOrInstance === 'string') return nameOrInstance;
     return null;
   }
 }

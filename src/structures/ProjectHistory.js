@@ -10,21 +10,11 @@ class ProjectHistory extends ProjectDetail {
   }
 
   _patch(data) {
-    if ('created' in data) {
-      this.createdAt = new Date(data.created);
-    } else {
-      this.createdAt ??= null;
-    }
-    if ('modified' in data) {
-      this.modifiedAt = new Date(data.modified);
-    } else {
-      this.modifiedAt ??= null;
-    }
-    if ('shared' in data) {
-      this.sharedAt = new Date(data.shared);
-    } else {
-      this.sharedAt ??= null;
-    }
+    const assign = this._makeAssigner(data);
+
+    assign(['createdAt', 'created'], new Date(data.created));
+    assign(['modifiedAt', 'modified'], new Date(data.modified));
+    assign(['sharedAt', 'shared'], new Date(data.shared));
     return this;
   }
 }

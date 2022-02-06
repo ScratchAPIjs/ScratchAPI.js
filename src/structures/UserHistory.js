@@ -10,11 +10,9 @@ class UserHistory extends UserDetail {
   }
 
   _patch(data) {
-    if ('joined' in data) {
-      this.joinedAt = new Date(data.joined);
-    } else {
-      this.joinedAt ??= null;
-    }
+    const assign = this._makeAssigner(data);
+
+    assign(['joinedAt', 'joined']);
     return this;
   }
 }

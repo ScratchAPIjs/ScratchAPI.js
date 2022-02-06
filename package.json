@@ -17,6 +17,7 @@
   "scripts": {
     "sample_1": "node samples/sample_1.js",
     "generate-docs": "jsdoc -c jsdoc.json",
+    "fmt": "prettier --write src/**/*.js",
     "lint": "eslint src"
   },
   "repository": {

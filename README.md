@@ -12,19 +12,6 @@ This library allows you to do the following:
 
 _There will be more to come!_
 
-
-## Acknowledgements
-#### This library is based on the design of [Discord.js](https://github.com/discordjs/discord.js).
-－With thanks to Discord.js, the awesome library.
-
-### It contains the following modules:
-- [`@discordjs/collection`](https://github.com/discordjs/discord.js/tree/main/packages/collection)
-- [`axios`](https://github.com/axios/axios)
-
-### The following services are being used for development:
-- [`ESLint`](https://github.com/eslint/eslint)
-- [`dotenv`](https://github.com/motdotla/dotenv)
-
 ## Example usage
 ```js
 const { Client } = require("../src");
@@ -46,3 +33,15 @@ client.on("message", message => {
 
 client.login('<username>', '<password>');
 ```
+
+## Acknowledgements
+#### This library is based on the design of [Discord.js](https://github.com/discordjs/discord.js).
+－With thanks to Discord.js, the awesome library.
+
+### It contains the following modules:
+- [`@discordjs/collection`](https://github.com/discordjs/discord.js/tree/main/packages/collection)
+- [`axios`](https://github.com/axios/axios)
+
+### The following services are being used for development:
+- [`ESLint`](https://github.com/eslint/eslint)
+- [`dotenv`](https://github.com/motdotla/dotenv)

@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-const { ProjectDetail } = require("./ProjectDetail");
+const { ProjectDetail } = require('./ProjectDetail');
 
 class ProjectRemix extends ProjectDetail {
   constructor(project, data) {
@@ -10,12 +10,12 @@ class ProjectRemix extends ProjectDetail {
   }
 
   _patch(data) {
-    if ("parent" in data) {
+    if ('parent' in data) {
       this.parent = data.parent;
     } else {
       this.parent ??= null;
     }
-    if ("root" in data) {
+    if ('root' in data) {
       this.root = data.root;
     } else {
       this.root ??= null;

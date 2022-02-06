@@ -1,36 +1,36 @@
-const http = require("http");
-const https = require("https");
+const http = require('http');
+const https = require('https');
 
 class RequestOption {
   match() {
-    throw new Error("NOT_IMPLANTED");
+    throw new Error('NOT_IMPLANTED');
   }
 }
 
 const RequestOptions = {
   Object: class extends RequestOption {
     match(structure) {
-      return typeof structure === "object";
+      return typeof structure === 'object';
     }
   },
   Number: class extends RequestOption {
     match(structure) {
-      return typeof structure === "number";
+      return typeof structure === 'number';
     }
   },
   Boolean: class extends RequestOption {
     match(structure) {
-      return typeof structure === "boolean";
+      return typeof structure === 'boolean';
     }
   },
   String: class extends RequestOption {
     match(structure) {
-      return typeof structure === "string";
+      return typeof structure === 'string';
     }
   },
   Function: class extends RequestOption {
     match(structure) {
-      return typeof structure === "function";
+      return typeof structure === 'function';
     }
   },
   Agent: class extends RequestOption {
@@ -47,9 +47,9 @@ const RequestOptions = {
 
 class RequestConfig {
   constructor(data = {}) {
-    if (typeof data.forEach !== "function") data = new Map(Object.entries(data));
+    if (typeof data.forEach !== 'function') data = new Map(Object.entries(data));
     this.data = {};
-    Object.defineProperty(this, "Items", {
+    Object.defineProperty(this, 'Items', {
       value: {
         agent: new RequestOptions.Agent(),
         auth: new RequestOptions.String(),
@@ -76,8 +76,8 @@ class RequestConfig {
       },
     });
     data.forEach((_value, _name) => {
-      if (!(_name in this.Items)) throw Error("INVALID_DATA:" + _name);
-      if (!this.Items[_name].match(_value)) throw TypeError("INVALID_TYPE");
+      if (!(_name in this.Items)) throw Error('INVALID_DATA:' + _name);
+      if (!this.Items[_name].match(_value)) throw TypeError('INVALID_TYPE');
       this.data[_name] = _value;
     });
   }
@@ -105,7 +105,7 @@ class HTTPAdapter {
    * @param {Object} config
    * @return {Promise<Respons>}
    */
-  request(method = "GET", path, config) {
+  request(method = 'GET', path, config) {
     const body = JSON.stringify(config.body);
     delete config.body;
     config = new RequestConfig(config);
@@ -120,16 +120,16 @@ class HTTPAdapter {
         },
         function (response) {
           var parts = [];
-          response.on("data", function (chunk) {
+          response.on('data', function (chunk) {
             parts.push(chunk);
           });
-          response.on("end", function () {
+          response.on('end', function () {
             //console.log(response);
             resolve(Buffer.concat(parts).toString(), response);
           });
         },
       );
-      req.on("error", console.log);
+      req.on('error', console.log);
       if (body) req.write(body);
       req.end();
     });

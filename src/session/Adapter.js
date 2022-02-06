@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
-const Axios = require("axios");
-const { Error } = require("../errors");
+const Axios = require('axios');
+const { Error } = require('../errors');
 
 class AxiosAdapter {
   constructor(config) {
@@ -12,7 +12,7 @@ class AxiosAdapter {
         return config;
       },
       (error) => {
-        throw new Error("REQUEST_INVALID", error.body);
+        throw new Error('REQUEST_INVALID', error.body);
       },
     );
     this.axios.interceptors.response.use(

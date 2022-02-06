@@ -15,10 +15,10 @@ class UserProfile extends UserDetail {
   _patch(data) {
     const assign = this._makeAssigner(data);
 
-    assign(["avatars", "images"]);
-    assign("status");
-    assign(["biography", "bio"]);
-    assign(["locale", "country"]);
+    assign(['avatars', 'images']);
+    assign('status');
+    assign(['biography', 'bio']);
+    assign(['locale', 'country']);
 
     return this;
   }

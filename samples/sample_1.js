@@ -9,7 +9,6 @@ client.on('ready', async () => {
   //client.messageEvent.start();
   //client.messageEvent.clear();
 
-
   console.log(client.user.history.joinedAt);
   console.log(client.user.profile.url);
   console.log(client.user.profile.avatar);
@@ -19,7 +18,7 @@ client.on('ready', async () => {
   console.log(project);
   // console.log((await project.author.fetch()));
 
-  ////client.on("message", message => {
+  ////client.on('message', message => {
   //   console.log(message);
   // })
 

@@ -12,10 +12,10 @@ class ProjectStatistic extends ProjectDetail {
   _patch(data) {
     const assign = this._makeAssigner(data);
 
-    assign("views");
-    assign("loves");
-    assign("favorites");
-    assign("remixes");
+    assign('views');
+    assign('loves');
+    assign('favorites');
+    assign('remixes');
 
     return this;
   }

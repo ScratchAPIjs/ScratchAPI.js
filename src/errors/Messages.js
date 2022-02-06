@@ -28,8 +28,8 @@ const Messages = {
   PROJECT_NOT_FOUND: (projectId) => `Project (aka id: ${projectId}) not found.`,
 
   ARG_MISSING: (name) => `Missing argument: ${name}`,
-  
-  TEST_ERROR: "This is an error for the test.",
+
+  TEST_ERROR: 'This is an error for the test.',
 };
 
 for (const [name, message] of Object.entries(Messages)) register(name, message);

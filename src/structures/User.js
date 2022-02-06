@@ -17,11 +17,11 @@ class User extends Base {
   _patch(data) {
     const assign = this._makeAssigner(data);
 
-    assign("id", String(data.id));
-    assign(["scratchTeam", "scratchteam"]);
-    assign("history", new UserHistory(this, data.history));
+    assign('id', String(data.id));
+    assign(['scratchTeam', 'scratchteam']);
+    assign('history', new UserHistory(this, data.history));
 
-    assign("profile", new UserProfile(this, data.profile));
+    assign('profile', new UserProfile(this, data.profile));
 
     return this;
   }

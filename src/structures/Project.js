@@ -19,25 +19,25 @@ class Project extends Base {
   _patch(data) {
     const assign = this._makeAssigner(data);
 
-    assign("title");
+    assign('title');
 
-    assign("description");
-    assign("instructions");
+    assign('description');
+    assign('instructions');
 
-    assign("visibility");
-    assign("public");
-    assign(["published", "is_published"]);
+    assign('visibility');
+    assign('public');
+    assign(['published', 'is_published']);
 
-    assign(["commentsAllowed", "comments_allowed"]);
+    assign(['commentsAllowed', 'comments_allowed']);
 
-    assign("image");
-    assign("images");
+    assign('image');
+    assign('images');
 
-    assign("author", new User(this.client, data.author));
+    assign('author', new User(this.client, data.author));
 
-    assign("history", new ProjectHistory(this, data.history));
-    assign("stats", new ProjectStatistic(this, data.stats));
-    assign("remix", new ProjectRemix(this, data.remix));
+    assign('history', new ProjectHistory(this, data.history));
+    assign('stats', new ProjectStatistic(this, data.stats));
+    assign('remix', new ProjectRemix(this, data.remix));
 
     return this;
   }

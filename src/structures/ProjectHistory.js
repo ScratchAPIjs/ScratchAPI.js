@@ -12,9 +12,9 @@ class ProjectHistory extends ProjectDetail {
   _patch(data) {
     const assign = this._makeAssigner(data);
 
-    assign(["createdAt", "created"], new Date(data.created));
-    assign(["modifiedAt", "modified"], new Date(data.modified));
-    assign(["sharedAt", "shared"], new Date(data.shared));
+    assign(['createdAt', 'created'], new Date(data.created));
+    assign(['modifiedAt', 'modified'], new Date(data.modified));
+    assign(['sharedAt', 'shared'], new Date(data.shared));
     return this;
   }
 }

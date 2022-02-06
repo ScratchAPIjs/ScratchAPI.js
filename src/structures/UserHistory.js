@@ -12,7 +12,7 @@ class UserHistory extends UserDetail {
   _patch(data) {
     const assign = this._makeAssigner(data);
 
-    assign(["joinedAt", "joined"]);
+    assign(['joinedAt', 'joined']);
     return this;
   }
 }

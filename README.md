@@ -38,10 +38,12 @@ client.login('<username>', '<password>');
 **This library is based on the design of [Discord.js](https://github.com/discordjs/discord.js).**
 －Thanks to Discord.js, the awesome library.
 
-### It contains the following modules:
+### Dependencies
+The following modules are contained in the dependencies:
 - [`@discordjs/collection`](https://github.com/discordjs/discord.js/tree/main/packages/collection)
 - [`axios`](https://github.com/axios/axios)
 
-### The following services are being used for development:
+### Others
+The following services are being used for development:
 - [`ESLint`](https://github.com/eslint/eslint)
 - [`dotenv`](https://github.com/motdotla/dotenv)

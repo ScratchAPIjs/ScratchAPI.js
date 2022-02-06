@@ -1,6 +1,5 @@
 {
   "name": "@scratchapijs/scratchapi.js",
-  "name": "scratchapi.js",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",

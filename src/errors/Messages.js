@@ -21,6 +21,8 @@ const Messages = {
   COMMENT_REJECTED: "The comments' request was rejected.",
 
   NOT_IMPLEMENTED: (what, name) => `Method ${what} not implemented on ${name}.`,
+
+  TEST_ERROR: "This is an error for the test.",
 };
 
 for (const [name, message] of Object.entries(Messages)) register(name, message);

@@ -11,14 +11,14 @@ client.on("ready", async () => {
   //client.messageEvent.start();
   //client.messageEvent.clear();
 
-  console.log(client.user.history.joinedAt);
-  console.log(client.user.profile.url);
-  console.log(client.user.profile.avatar);
-  console.log(client.user.profile.avatarURL());
+  //console.log(client.user.history.joinedAt);
+  //console.log(client.user.profile.url);
+  //console.log(client.user.profile.avatar);
+  //console.log(client.user.profile.avatarURL());
 
-  const project = await client.projects.fetch("624134306");
-  console.log(project);
-  console.log((await project.author.fetch()).profile);
+  //const project = await client.projects.fetch("624134306");
+  //console.log(project);
+  //console.log((await project.author.fetch()).profile);
 
   ////client.on("message", message => {
   //   console.log(message);
@@ -27,4 +27,4 @@ client.on("ready", async () => {
   //console.log(await client.projectManager.getProject(639365883));
 });
 
-client.login(process.env.SCRATCH_USERNAME, process.env.SCRATCH_PASSWORD);
+client.login();

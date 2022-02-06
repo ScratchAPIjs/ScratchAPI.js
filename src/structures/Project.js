@@ -11,77 +11,34 @@ class Project extends Base {
   constructor(client, data) {
     super(client);
 
-    this.id = data.id;
+    this.id = String(data.id);
 
     this._patch(data);
   }
 
   _patch(data) {
-    if ("title" in data) {
-      this.title = String(data.title);
-    } else {
-      this.title ??= null;
-    }
-    if ("description" in data) {
-      this.description = String(data.description);
-    } else {
-      this.description ??= null;
-    }
-    if ("instructions" in data) {
-      this.instructions = String(data.instructions);
-    } else {
-      this.instructions ??= null;
-    }
-    if ("visibility" in data) {
-      this.visibility = String(data.visibility);
-    } else {
-      this.visibility ??= null;
-    }
-    if ("public" in data) {
-      this.public = Boolean(data.public);
-    } else {
-      this.public ??= null;
-    }
-    if ("comments_allowed" in data) {
-      this.commentsAllowed = Boolean(data.comments_allowed);
-    } else {
-      this.commentsAllowed ??= null;
-    }
-    if ("is_published" in data) {
-      this.published = Boolean(data.is_published);
-    } else {
-      this.published ??= null;
-    }
-    if ("author" in data) {
-      this.author = new User(this.client, data.author);
-    } else {
-      this.author ??= null;
-    }
-    if ("image" in data) {
-      this.image = String(data.image);
-    } else {
-      this.image ??= null;
-    }
-    if ("images" in data) {
-      this.images = data.images;
-    } else {
-      this.images ??= null;
-    }
-    if ("history" in data) {
-      this.history = new ProjectHistory(this, data.history);
-    } else {
-      this.history ??= null;
-    }
-    if ("stats" in data) {
-      this.stats = new ProjectStatistic(this, data.stats);
-    } else {
-      this.stats ??= null;
-    }
-    if ("remix" in data) {
-      this.remix = new ProjectRemix(this, data.remix);
-    } else {
-      this.remix ??= null;
-    }
+    const assign = this._makeAssigner(data);
+
+    assign("title");
+
+    assign("description");
+    assign("instructions");
+
+    assign("visibility");
+    assign("public");
+    assign(["published", "is_published"]);
+
+    assign(["commentsAllowed", "comments_allowed"]);
+
+    assign("image");
+    assign("images");
+
+    assign("author", new User(this.client, data.author));
+
+    assign("history", new ProjectHistory(this, data.history));
+    assign("stats", new ProjectStatistic(this, data.stats));
+    assign("remix", new ProjectRemix(this, data.remix));
+
     return this;
   }
 

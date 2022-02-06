@@ -15,27 +15,13 @@ class User extends Base {
   }
 
   _patch(data) {
-    if ("id" in data) {
-      this.id = String(data.id);
-    } else {
-      this.id ??= null;
-    }
-    if ("scratchteam" in data) {
-      this.scratchTeam = Boolean(data.scratchteam);
-    } else {
-      this.scratchTeam ??= null;
-    }
-    if ("history" in data) {
-      this.history = new UserHistory(this, data.history);
-    } else {
-      this.history ??= null;
-    }
+    const assign = this._makeAssigner(data);
 
-    if ("profile" in data) {
-      this.profile = new UserProfile(this, data.profile);
-    } else {
-      this.profile ??= null;
-    }
+    assign("id", String(data.id));
+    assign(["scratchTeam", "scratchteam"]);
+    assign("history", new UserHistory(this, data.history));
+
+    assign("profile", new UserProfile(this, data.profile));
     return this;
   }
 

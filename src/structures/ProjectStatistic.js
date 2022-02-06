@@ -10,26 +10,13 @@ class ProjectStatistic extends ProjectDetail {
   }
 
   _patch(data) {
-    if ("views" in data) {
-      this.views = Number(data.views);
-    } else {
-      this.views ??= null;
-    }
-    if ("loves" in data) {
-      this.loves = Number(data.loves);
-    } else {
-      this.loves ??= null;
-    }
-    if ("favorites" in data) {
-      this.favorites = Number(data.favorites);
-    } else {
-      this.favorites ??= null;
-    }
-    if ("remixes" in data) {
-      this.remixes = Number(data.remixes);
-    } else {
-      this.remixes ??= null;
-    }
+    const assign = this._makeAssigner(data);
+
+    assign("views");
+    assign("loves");
+    assign("favorites");
+    assign("remixes");
+
     return this;
   }
 }

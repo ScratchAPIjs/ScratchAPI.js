@@ -34,9 +34,10 @@ void (function consoleLogColorizer() {
   };
 })();
 
-const isObject = (d) => typeof d === "object" && d !== null;
-
 class Util extends null {
+  static isObject(d) {
+    typeof d === "object" && d !== null;
+  }
   static cloneObject(obj) {
     return Object.assign(Object.create(obj), obj);
   }

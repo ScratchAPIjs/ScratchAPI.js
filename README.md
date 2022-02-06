@@ -1,4 +1,4 @@
-# Scratch-API-Library
+# Scratch API Library
 
 ## About
 This is a [Node.js](https://nodejs.org/en/) module that makes it easy to access the [Scratch](https://scratch.mit.edu/) API.

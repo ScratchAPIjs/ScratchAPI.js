@@ -9,7 +9,7 @@ const { BaseClient } = require('./BaseClient');
 const { ClientUser } = require('../structures/ClientUser');
 
 const { UserManager } = require('../managers/UserManager');
-const { MessageEvent } = require('../events/messageEvent');
+const { MessageEventManager } = require('../events/MessageEventManager');
 const { ProjectManager } = require('../managers/ProjectManager');
 
 class Client extends BaseClient {
@@ -38,7 +38,7 @@ class Client extends BaseClient {
     this.user = null;
     this.readyTimestamp = null;
 
-    this.messageEvent = new MessageEvent(this);
+    this.messages = new MessageEventManager(this);
 
     this.users = new UserManager(this);
     this.projects = new ProjectManager(this);
@@ -62,7 +62,7 @@ class Client extends BaseClient {
     this.username = username;
 
     this.readyTimestamp = Date.now();
-    if (this.options.events.message) await this.messageEvent.start();
+    if (this.options.events.message) await this.messages.start();
 
     this.emit(Events.READY, this.username);
     return this.user;
@@ -75,6 +75,7 @@ class Client extends BaseClient {
 
   destroy() {
     super.destroy();
+    this.messages.clear();
     this.token = this.username = null;
     this.emit(Events.DESTROYED);
   }

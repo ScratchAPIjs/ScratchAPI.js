@@ -8,8 +8,11 @@ const Servers = {
 };
 
 const Routes = {
-  get LOGIN() {
+  get login() {
     return `https://${Servers.GENERAL}/accounts/login/`;
+  },
+  get session() {
+    return `https://${Servers.GENERAL}/session/`;
   },
   Web: {
     user(username) {
@@ -27,6 +30,15 @@ const Routes = {
   API: {
     user(username) {
       return `https://${Servers.API}/users/${username}/`;
+    },
+    messages(username) {
+      return `${Routes.API.user(username)}messages/`;
+    },
+    messagesCount(username) {
+      return `${Routes.API.messages(username)}count/`;
+    },
+    postComment(type, identifier) {
+      return `https://${Servers.GENERAL}/site-api/comments/${type}/${identifier}/add/`;
     },
     project(id) {
       return `https://${Servers.API}/projects/${id}/`;

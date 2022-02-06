@@ -1,7 +1,7 @@
 'use strict';
 
 const { Error } = require('../errors');
-const { Servers } = require('./Addresses');
+const { Routes } = require('./Addresses');
 
 const { AxiosAdapter } = require('./Adapter');
 const { Util, DefaultOptions } = require('../utils');
@@ -10,20 +10,27 @@ class Session {
   constructor(client) {
     Object.defineProperty(this, 'client', { value: client });
 
-    this.adapter = new AxiosAdapter(DefaultOptions.REST);
+    Object.defineProperties(this, {
+      token: { writable: true },
+      id: { writable: true },
+    });
     this.id = this.token = null;
+
+    this.adapter = new AxiosAdapter(DefaultOptions.REST);
   }
+
   async connect(username, password) {
-    const response = await this.adapter.request({
-      url: `https://${Servers.GENERAL}/accounts/login/`,
-      method: 'POST',
-      data: { username: username, password: password },
+    const response = await this.adapter.post(Routes.login, {
+      username: username,
+      password: password,
     });
     if (response.isAxiosError) throw new Error('LOGIN_REJECTED', username);
 
     this.id = Util.parseCookie(response.headers['set-cookie'][0]).scratchsessionsid;
-    this.token = response.data.token;
+    this.token = response.data[0].token;
+
     this.adapter.defaults.headers.cookie += `scratchsessionsid=${this.id};`;
+    Object.assign(this.adapter.defaults.headers, { 'x-token': this.token });
 
     return response;
   }
@@ -32,28 +39,24 @@ class Session {
   }
 
   async addComment(options = {}) {
-    let type, identifier;
-    if (options.project) {
-      type = 'project';
-      identifier = options.project;
-    } else if (options.user) {
-      type = 'user';
-      identifier = options.user;
-    } else if (options.studio) {
-      type = 'gallery';
-      identifier = options.studio;
-    }
-    const response = await this.adapter.request({
-      url: `https://${Servers.GENERAL}/site-api/comments/${type}/${identifier}/add/`,
-      method: 'POST',
-      data: {
-        content: options?.content,
-        parent_id: '',
-      },
-      responseType: 'document',
-    });
+    const { type, identifier } = parseOptions() ?? {};
+    const response = await this.adapter.post(
+      Routes.API.postComment(type, identifier),
+      { content: options?.content, parent_id: options.parent ?? '' },
+      { responseType: 'document' },
+    );
     if (response.isAxiosError) throw new Error('COMMENT_REJECTED');
     return response;
+
+    function parseOptions() {
+      if (options.project) {
+        return { type: 'project', identifier: options.project };
+      } else if (options.user) {
+        return { type: 'user', identifier: options.user };
+      } else if (options.studio) {
+        return { type: 'gallery', identifier: options.studio };
+      }
+    }
   }
 }
 

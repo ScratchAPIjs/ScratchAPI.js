@@ -1,4 +1,5 @@
 'use strict';
+require('dotenv').config();
 
 const { Events } = require('../utils');
 const { Error } = require('../errors');
@@ -22,6 +23,7 @@ class Client extends BaseClient {
       username: { writable: true },
       password: { writable: true },
     });
+
     if (!this.username && 'SCRATCH_USERNAME' in process.env) {
       this.username = process.env.SCRATCH_USERNAME;
     } else {

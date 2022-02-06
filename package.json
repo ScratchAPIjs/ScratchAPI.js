@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "A great Library for the Scratch API",
   "main": "src/index.js",
-  "devDependencies": {
+  "dependencies": {
     "@discordjs/collection": "^0.5.0",
     "axios": "^0.25.0",
     "dotenv": "^16.0.0",
-    "node-fetch": "^3.2.0",
+    "node-fetch": "^3.2.0"
+  },
+  "devDependencies": {
     "docdash": "^1.2.0",
     "eslint": "^8.8.0",
     "node": "^16.6.1"

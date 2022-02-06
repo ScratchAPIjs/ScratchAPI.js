@@ -17,11 +17,11 @@ _There will be more to come!_
 #### This library is based on the design of [Discord.js](https://github.com/discordjs/discord.js).
 －With thanks to Discord.js, the awesome library.
 
-It also contains the following modules:
+### It also contains the following modules:
 - [`@discordjs/collection`](https://github.com/discordjs/discord.js/tree/main/packages/collection)
 - [`axios`](https://github.com/axios/axios)
 
-The following services are being used for development:
+### The following services are being used for development:
 - [`ESLint`](https://github.com/eslint/eslint)
 - [`dotenv`](https://github.com/motdotla/dotenv)
 

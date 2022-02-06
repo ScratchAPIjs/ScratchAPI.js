@@ -23,11 +23,11 @@ function makeError(Base) {
 
 function message(key, args) {
   if (typeof key !== 'string') throw new Error('Error message key must be a string');
-  const msg = messages.get(key);
-  if (!msg) return; //throw new Error(`An invalid error message key was used: ${key}.`);
-  if (typeof msg === 'function') return msg(...args);
-  if (!args?.length) return msg;
-  args.unshift(msg);
+  const message = messages.get(key);
+  if (!message) return; //throw new Error(`An invalid error message key was used: ${key}.`);
+  if (typeof message === 'function') return message(...args);
+  if (!args?.length) return message;
+  args.unshift(message);
   return String(...args);
 }
 

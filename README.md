@@ -35,7 +35,7 @@ client.login('<username>', '<password>');
 ```
 
 ## Acknowledgements
-#### This library is based on the design of [Discord.js](https://github.com/discordjs/discord.js).
+**This library is based on the design of [Discord.js](https://github.com/discordjs/discord.js).**
 －With thanks to Discord.js, the awesome library.
 
 ### It contains the following modules:

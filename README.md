@@ -10,7 +10,7 @@ This library allows you to do the following:
 - Log in to your Scratch account.
 - Send comments to yourself and other users.
 - Receive notifications to your account.
-There will be more to come!
+- There will be more to come!
 
 ## Example usage
 ```js

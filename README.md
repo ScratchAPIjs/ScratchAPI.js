@@ -33,6 +33,8 @@ client.on("message", message => {
 
 client.login('<username>', '<password>');
 ```
+## License
+This library is licensed under the **Apache License 2.0**.
 
 ## Acknowledgements
 **This library is based on the design of [Discord.js](https://github.com/discordjs/discord.js).**

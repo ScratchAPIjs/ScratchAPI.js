@@ -1,7 +1,7 @@
 # Scratch-API-Librarys
 
 ## About
-This is a Node.js module that makes it easy to access the Scratch API.
+This is a [Node.js](https://nodejs.org/en/) module that makes it easy to access the [Scratch](https://scratch.mit.edu/) API.
 (It is under development.)
 
 ## Support
@@ -17,7 +17,9 @@ This library contains the following artifacts distributed under the license of t
 - [`@discordjs/collection`](https://github.com/discordjs/discord.js/tree/main/packages/collection)
 
 ## Acknowledgements
-This library is based on the design of [Discord.js](https://github.com/discordjs/discord.js). With thanks to Discord.js, the awesome library.
+#### This library is based on the design of [Discord.js](https://github.com/discordjs/discord.js). With thanks to Discord.js, the awesome library.
+It also contains the following modules:
+- [axios](https://github.com/axios/axios)
 
 ## Example usage
 ```js
@@ -27,26 +29,16 @@ const client = new Client();
 client.on("ready", async () => {
   console.log("Ready!");
 
-  //client.messageEvent.start();
-
-  // Stop messageEvent
-  //client.messageEvent.clear();
-
+  console.log(client.user);
   console.log(client.user.history.joinedAt);
   console.log(client.user.profile.url);
   console.log(client.user.profile.avatar);
   console.log(client.user.profile.avatarURL());
 
-  const project = await client.projects.fetch(ProjectID);
-  console.log(project);
-  console.log((await project.author.fetch()).profile);
-
-  client.on("message", message => {
-    console.log(message);
-  })
-
-  console.log(await client.projectManager.getProject(ProjectID));
 });
+client.on("message", message => {
+  console.log(message);
+})
 
-client.login();
+client.login('<username>', '<password>');
 ```

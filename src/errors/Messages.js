@@ -15,14 +15,14 @@ const Messages = {
     `Could not access the Scratch account (aka ${username}): An incorrect password might be provided.`,
 
   FETCH_REJECTED: 'The fetch request was rejected.',
-  COMMENT_REJECTED: "The comments' request was rejected.",
+  COMMENT_REJECTED: 'The comment request was rejected.',
 
   NOT_IMPLEMENTED: (what, name) => `Method ${what} not implemented on ${name}.`,
 
   PROJECT_NOT_YOURS: (projectId) =>
-    `You are not author of this project (aka id: ${projectId}).\nCan't modify.`,
+    `You are not author of this project (aka projectID: ${projectId}).\nCan't modify.`,
 
-  PROJECT_NOT_FOUND: (projectId) => `Project (aka id: ${projectId}) not found.`,
+  PROJECT_NOT_FOUND: (projectId) => `Project (aka projectID: ${projectId}) not found.`,
 
   ARG_MISSING: (name) => `Missing argument: ${name}`,
 };

@@ -26,9 +26,18 @@ client.on('ready', async () => {
   console.log(client.user.profile.avatar);
   console.log(client.user.profile.avatarURL());
 
+  client.user.addComment('Hello, world!');
 });
 client.on('message', message => {
   console.log(message);
+  
+  if (message.type === 'commentadd') {
+    client.session.addComment({
+      content: 'Hello!'
+      parent: message.comment_id,
+      user: user.username
+    });
+  }
 })
 
 client.login('<username>', '<password>');

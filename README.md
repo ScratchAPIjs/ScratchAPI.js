@@ -14,11 +14,11 @@ This library allows you to do the following:
 
 ## Example usage
 ```js
-const { Client } = require("scratchapijs");
+const { Client } = require('@scratchapijs/scratchapi.js');
 const client = new Client();
 
-client.on("ready", async () => {
-  console.log("Ready!");
+client.on('ready', async () => {
+  console.log('Ready!');
 
   console.log(client.user);
   console.log(client.user.history.joinedAt);
@@ -27,12 +27,16 @@ client.on("ready", async () => {
   console.log(client.user.profile.avatarURL());
 
 });
-client.on("message", message => {
+client.on('message', message => {
   console.log(message);
 })
 
 client.login('<username>', '<password>');
 ```
+
+## Demo
+https://scratch.mit.edu/users/comment-bot/
+
 ## License
 This library is licensed under the **Apache License 2.0**.
 

@@ -8,9 +8,9 @@ This is a [Node.js](https://nodejs.org/en/) module that makes it easy to access 
 ## Features
 This library allows you to do the following:
 - Log in to your Scratch account.
-- Send comments to yourself and other users.
 - Receive notifications to your account.
-- There will be more to come!
+- Modify project.
+- Get user / project data.
 
 ## Example usage
 ```js

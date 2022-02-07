@@ -25,26 +25,14 @@ client.on('ready', async () => {
   console.log(client.user.profile.url);
   console.log(client.user.profile.avatar);
   console.log(client.user.profile.avatarURL());
-
-  client.user.addComment('Hello, world!');
 });
+
 client.on('message', message => {
   console.log(message);
-  
-  if (message.type === 'commentadd') {
-    client.session.addComment({
-      content: 'Hello!',
-      parent: message.comment_id,
-      user: user.username
-    });
-  }
 })
 
 client.login('<username>', '<password>');
 ```
-
-## Demo
-https://scratch.mit.edu/users/comment-bot/
 
 ## License
 This library is licensed under the **Apache License 2.0**.
@@ -57,8 +45,8 @@ This library is licensed under the **Apache License 2.0**.
 The following modules are contained in the dependencies:
 - [`@discordjs/collection`](https://github.com/discordjs/discord.js/tree/main/packages/collection)
 - [`axios`](https://github.com/axios/axios)
+- [`dotenv`](https://github.com/motdotla/dotenv)
 
 ### Others
 The following services are being used for development:
 - [`ESLint`](https://github.com/eslint/eslint)
-- [`dotenv`](https://github.com/motdotla/dotenv)

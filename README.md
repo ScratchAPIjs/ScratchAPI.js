@@ -14,7 +14,7 @@ This library allows you to do the following:
 
 ## Example usage
 ```js
-const { Client } = require("../src");
+const { Client } = require("scratchapijs");
 const client = new Client();
 
 client.on("ready", async () => {

@@ -33,7 +33,7 @@ client.on('message', message => {
   
   if (message.type === 'commentadd') {
     client.session.addComment({
-      content: 'Hello!'
+      content: 'Hello!',
       parent: message.comment_id,
       user: user.username
     });

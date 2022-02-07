@@ -30,14 +30,6 @@ class User extends Base {
     return typeof this.username === 'string';
   }
 
-  async addComment(content) {
-    await this.client.session.addComment({
-      user: this.username,
-      content: content,
-    });
-    return 'Message Object (Coming Soon)';
-  }
-
   fetch(force = true) {
     return this.client.users.fetch(this.username, { force });
   }

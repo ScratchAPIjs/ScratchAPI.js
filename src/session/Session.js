@@ -34,29 +34,9 @@ class Session {
 
     return response;
   }
+
   destroy() {
     this.id = null;
-  }
-
-  async addComment(options = {}) {
-    const { type, identifier } = parseOptions() ?? {};
-    const response = await this.adapter.post(
-      Routes.API.postComment(type, identifier),
-      { content: options?.content, parent_id: options.parent ?? '' },
-      { responseType: 'document' },
-    );
-    if (response.isAxiosError) throw new Error('COMMENT_REJECTED');
-    return response;
-
-    function parseOptions() {
-      if (options.project) {
-        return { type: 'project', identifier: options.project };
-      } else if (options.user) {
-        return { type: 'user', identifier: options.user };
-      } else if (options.studio) {
-        return { type: 'gallery', identifier: options.studio };
-      }
-    }
   }
 }
 

@@ -42,14 +42,6 @@ class Project extends Base {
     return this;
   }
 
-  async addComment(content) {
-    await this.client.session.addComment({
-      project: this.id,
-      content: content,
-    });
-    return 'Message Object (Coming Soon)';
-  }
-
   async modify(data) {
     if (this.author.username !== this.client.username) {
       throw new Error('PROJECT_NOT_YOURS', this.id);
